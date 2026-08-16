@@ -25,9 +25,9 @@ export const Automations: React.FC = () => {
     <section id="automations" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#050507] border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
-          title="Autonomous Systems & Automation Logic"
-          subheadline="Production-grade AI workflows handling multi-platform data routing, CRM synchronization, and LLM-powered operations."
-          badge="Automation Architecture"
+          title="Automations and Workflow Logic"
+          subheadline="Real workflows handling lead capture, CRM syncing, and daily business tasks on autopilot."
+          badge="n8n and Automations"
           icon={Workflow}
         />
 

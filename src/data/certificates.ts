@@ -3,54 +3,54 @@ import { Certificate } from "../types/portfolio";
 export const certificates: Certificate[] = [
   {
     id: "cert-1",
-    title: "AI Hackathon Innovation Champion",
-    issuer: "National Tech Innovation & AI Summit",
+    title: "AI Hackathon Winner",
+    issuer: "National Tech Innovation Summit",
     issueDate: "2025",
     credentialUrl: "https://github.com/hamza19-2006",
     image: "https://images.unsplash.com/photo-1579389083078-4e7018379f7e?auto=format&fit=crop&w=800&q=80",
     category: "Competition & Hackathon",
     isWinningAward: true,
-    awardRank: "1st Place Winner / Champion",
-    description: "Awarded First Place for architecting a fully autonomous multi-modal agentic support system that cut customer response latency by 90% in live stress-testing scenarios.",
-    skillsLearned: ["Autonomous Multi-Agent Swarms", "Real-Time Webhooks", "LLM Prompt Architecture", "Live Stress Testing"]
+    awardRank: "1st Place Winner",
+    description: "Awarded first place for building an automated customer response system that cut support delays by ninety percent during live testing.",
+    skillsLearned: ["AI Agent Swarms", "Live Webhooks", "Prompt Design", "Rapid Prototyping"]
   },
   {
     id: "cert-2",
-    title: "Advanced Workflow Orchestration & API Architecture",
-    issuer: "n8n Certified Automation Expert",
+    title: "Advanced Workflow and API Architecture",
+    issuer: "n8n Certified Automation",
     issueDate: "2025",
     credentialUrl: "https://n8n.io",
     image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
     category: "AI & Automation",
     isWinningAward: false,
-    awardRank: "Expert Level Certification",
-    description: "Certified proficiency in complex multi-tenant workflow orchestration, error recovery pipelines, custom JavaScript/Python node development, and webhook security.",
-    skillsLearned: ["Enterprise n8n Deployments", "Webhook Cryptography", "Rate Limiting & Queuing", "JSON Data Transformations"]
+    awardRank: "Certified Expert",
+    description: "Demonstrated expertise in building multi tenant workflows, custom API connections, webhook security, and automatic error handling.",
+    skillsLearned: ["Enterprise n8n", "Webhook Security", "Error Handling", "JSON Data Logic"]
   },
   {
     id: "cert-3",
-    title: "Generative AI & LLM Systems Specialist",
-    issuer: "Google Cloud / DeepLearning.AI",
+    title: "Generative AI and Language Model Systems",
+    issuer: "Google Cloud and DeepLearning",
     issueDate: "2025",
     credentialUrl: "https://deeplearning.ai",
     image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80",
     category: "AI & Automation",
     isWinningAward: false,
-    awardRank: "Distinction Honors",
-    description: "Rigorous certification covering long-context window architectures (Gemini 1.5 Pro), structured JSON outputs, function calling/tools, and multi-modal embeddings.",
-    skillsLearned: ["Gemini 1.5 Architecture", "Tool Use & Function Calling", "Semantic Vector Search", "Prompt Guardrails"]
+    awardRank: "Certified Specialist",
+    description: "Completed specialization in applying large language models, tool calling, structured outputs, and prompt guardrails to real products.",
+    skillsLearned: ["Google Gemini", "Function Calling", "Semantic Search", "Prompt Guardrails"]
   },
   {
     id: "cert-4",
-    title: "AI-Driven Mobile (Flutter) & Web Engineering",
-    issuer: "Applied AI App Development Certification",
+    title: "Mobile App and Web Development",
+    issuer: "Modern Application Engineering",
     issueDate: "2024",
     credentialUrl: "https://github.com/hamza19-2006",
     image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80",
     category: "Full-Stack Development",
     isWinningAward: false,
-    awardRank: "Specialization Credential",
-    description: "Mastery of accelerated mobile application development with Flutter/Dart and modern web platforms, pairing high-level architecture with AI-driven rapid prototyping (Vibe Coding).",
-    skillsLearned: ["Flutter & Dart", "AI-Assisted Vibe Coding", "React & Tailwind CSS", "REST API Integrations"]
+    awardRank: "Certified Engineer",
+    description: "Focused on building cross platform mobile apps with Flutter and responsive web platforms using modern fast development tools.",
+    skillsLearned: ["Flutter and Dart", "React and Tailwind", "REST APIs", "Fast Development"]
   }
 ];

@@ -19,9 +19,9 @@ export const WebDeployments: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <SectionHeader
-            title="Live Client Deployments & SaaS"
-            subheadline="Production-grade platforms and clinical acquisition systems engineered for real businesses."
-            badge="Web Engineering"
+            title="Web Apps and Client Projects"
+            subheadline="Active web apps, client platforms, and online tools built for real users."
+            badge="Web Projects"
             icon={Globe}
           />
 

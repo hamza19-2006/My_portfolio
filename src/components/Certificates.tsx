@@ -22,9 +22,9 @@ export const Certificates: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <SectionHeader
-            title="Honors, Awards & Verified Certifications"
-            subheadline="Recognized hackathon achievements, verified technical credentials, and specialized AI automation certifications."
-            badge="Credentials & Distinctions"
+            title="Certificates and Achievements"
+            subheadline="Hackathon awards, completed certifications, and practical achievements."
+            badge="Certificates"
             icon={Award}
           />
 

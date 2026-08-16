@@ -16,9 +16,9 @@ export const SkillsMatrix: React.FC = () => {
     <section id="skills" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#050507] border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
-          title="Technical Competency Matrix"
-          subheadline="Battle-tested tools, frameworks, and APIs leveraged to build automated architectures and high-conversion software."
-          badge="Core Stack"
+          title="Skills and Tools"
+          subheadline="The core tools and technologies I use every day to build automations, apps, and web platforms."
+          badge="Skills and Stack"
           icon={Cpu}
         />
 

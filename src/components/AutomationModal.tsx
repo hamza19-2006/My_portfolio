@@ -90,7 +90,7 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
                 }`}
               >
                 <Workflow className="w-3.5 h-3.5" />
-                <span>Execution Steps</span>
+                <span>How It Works</span>
               </button>
 
               <button
@@ -102,7 +102,7 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
                 }`}
               >
                 <Cpu className="w-3.5 h-3.5" />
-                <span>Full Mechanics</span>
+                <span>Full Details</span>
               </button>
 
               <button
@@ -114,7 +114,7 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
                 }`}
               >
                 <TrendingUp className="w-3.5 h-3.5" />
-                <span>Impact & Security</span>
+                <span>Results and Security</span>
               </button>
             </div>
           </div>
@@ -123,8 +123,8 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
           <div className="p-6 sm:p-10 overflow-y-auto space-y-6">
             {activeTab === "flow" && (
               <div className="space-y-4">
-                <h4 className="text-xs font-mono uppercase tracking-widest text-blue-400 flex items-center gap-2">
-                  <Workflow className="w-4 h-4" /> Pipeline Sequence Flow
+                <h4 className="text-xs uppercase tracking-widest text-blue-400 flex items-center gap-2 font-bold">
+                  <Workflow className="w-4 h-4" /> Workflow Steps
                 </h4>
                 <div className="space-y-3">
                   {project.architectureSteps.map((step, idx) => (
@@ -146,8 +146,8 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
 
             {activeTab === "mechanics" && (
               <div className="space-y-4">
-                <h4 className="text-xs font-mono uppercase tracking-widest text-indigo-400 flex items-center gap-2">
-                  <Cpu className="w-4 h-4" /> Deep Architecture Overview
+                <h4 className="text-xs uppercase tracking-widest text-indigo-400 flex items-center gap-2 font-bold">
+                  <Cpu className="w-4 h-4" /> Detailed Workflow Breakdown
                 </h4>
                 <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
                   <p className="text-zinc-300 text-base leading-relaxed whitespace-pre-line font-normal">
@@ -160,8 +160,8 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
             {activeTab === "impact" && (
               <div className="space-y-6">
                 <div className="p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/20">
-                  <h4 className="text-xs font-mono uppercase tracking-widest text-emerald-400 flex items-center gap-2 mb-2">
-                    <TrendingUp className="w-4 h-4" /> Quantified Business Value
+                  <h4 className="text-xs uppercase tracking-widest text-emerald-400 flex items-center gap-2 mb-2 font-bold">
+                    <TrendingUp className="w-4 h-4" /> Business Results
                   </h4>
                   <p className="text-zinc-200 text-base leading-relaxed">
                     {project.businessImpact}
@@ -170,8 +170,8 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
 
                 {project.securityFeatures && (
                   <div className="p-6 rounded-2xl bg-blue-500/5 border border-blue-500/20">
-                    <h4 className="text-xs font-mono uppercase tracking-widest text-blue-400 flex items-center gap-2 mb-2">
-                      <ShieldCheck className="w-4 h-4" /> Security & Reliability Controls
+                    <h4 className="text-xs uppercase tracking-widest text-blue-400 flex items-center gap-2 mb-2 font-bold">
+                      <ShieldCheck className="w-4 h-4" /> Security and Safeguards
                     </h4>
                     <p className="text-zinc-300 text-sm leading-relaxed">
                       {project.securityFeatures}
@@ -184,14 +184,14 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
 
           {/* Modal Footer */}
           <div className="px-6 sm:px-10 py-4 bg-zinc-950/80 border-t border-white/10 flex items-center justify-between shrink-0">
-            <span className="text-xs text-zinc-500 font-mono">
-              Designed & Engineered by Muhammad Hamza
+            <span className="text-xs text-zinc-500 font-medium">
+              Built by Muhammad Hamza
             </span>
             <button
               onClick={onClose}
               className="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-lg shadow-blue-600/20"
             >
-              Close Blueprint
+              Close
             </button>
           </div>
         </motion.div>

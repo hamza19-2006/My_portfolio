@@ -100,21 +100,21 @@ export const Hero: React.FC = () => {
         {/* Tech Badges Row */}
         <motion.div
           variants={itemVariants}
-          className="pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs text-zinc-500 font-mono"
+          className="pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs text-zinc-400 font-sans"
         >
-          <span className="flex items-center gap-1.5 text-zinc-400 font-sans font-medium">
+          <span className="flex items-center gap-1.5 font-medium">
             <CheckCircle2 className="w-4 h-4 text-blue-400" /> n8n Workflows
           </span>
-          <span className="flex items-center gap-1.5 text-zinc-400 font-sans font-medium">
-            <CheckCircle2 className="w-4 h-4 text-blue-400" /> Multi-Modal AI (Gemini / OpenAI)
+          <span className="flex items-center gap-1.5 font-medium">
+            <CheckCircle2 className="w-4 h-4 text-blue-400" /> AI Agents and LLMs
           </span>
-          <span className="flex items-center gap-1.5 text-zinc-400 font-sans font-medium">
+          <span className="flex items-center gap-1.5 font-medium">
             <CheckCircle2 className="w-4 h-4 text-blue-400" /> WhatsApp Cloud API
           </span>
-          <span className="flex items-center gap-1.5 text-zinc-400 font-sans font-medium">
-            <CheckCircle2 className="w-4 h-4 text-blue-400" /> Flutter & Vibe Coding
+          <span className="flex items-center gap-1.5 font-medium">
+            <CheckCircle2 className="w-4 h-4 text-blue-400" /> Flutter and Web Apps
           </span>
-          <span className="flex items-center gap-1.5 text-zinc-400 font-sans font-medium">
+          <span className="flex items-center gap-1.5 font-medium">
             <CheckCircle2 className="w-4 h-4 text-blue-400" /> GoHighLevel CRM
           </span>
         </motion.div>

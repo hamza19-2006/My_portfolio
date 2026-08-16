@@ -70,9 +70,9 @@ export const Contact: React.FC = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionHeader
-          title="Let's Build Something Intelligent"
-          subheadline="Ready to eliminate manual bottlenecks, integrate AI agents, or launch a modern web platform? Reach out directly."
-          badge="Direct Contact & Inquiries"
+          title="Let's Work Together"
+          subheadline="Ready to automate your workflows, build a new app, or improve your business systems? Send a message and let's talk."
+          badge="Get in Touch"
           icon={Mail}
         />
 

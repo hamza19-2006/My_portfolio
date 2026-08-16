@@ -20,8 +20,8 @@ export const Footer: React.FC = () => {
             <p className="text-xs font-bold text-white tracking-tight">
               Muhammad Hamza
             </p>
-            <p className="text-[11px] text-zinc-500 font-mono">
-              AI Automation Architect & Full-Stack Systems Engineer
+            <p className="text-[11px] text-zinc-500 font-medium">
+              n8n Automation Specialist and Developer
             </p>
           </div>
         </div>

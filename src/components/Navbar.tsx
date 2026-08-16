@@ -32,11 +32,11 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { label: "Deployments", href: "#web-deployments" },
-    { label: "App Showcase", href: "#app-showcase" },
+    { label: "Web Apps", href: "#web-deployments" },
+    { label: "Mobile Apps", href: "#app-showcase" },
     { label: "Automations", href: "#automations" },
     { label: "Certificates", href: "#certificates" },
-    { label: "Stack", href: "#skills" },
+    { label: "Skills", href: "#skills" },
     { label: "About", href: "#about" },
   ];
 
@@ -77,8 +77,8 @@ export const Navbar: React.FC = () => {
                 </span>
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               </div>
-              <span className="text-[11px] text-zinc-400 font-mono tracking-wide">
-                Automation Architect & Dev
+              <span className="text-[11px] text-zinc-400 font-medium">
+                n8n Specialist and Developer
               </span>
             </div>
           </a>

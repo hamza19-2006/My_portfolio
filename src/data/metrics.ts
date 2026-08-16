@@ -4,25 +4,25 @@ export const impactMetrics: MetricItem[] = [
   {
     id: "m-1",
     value: "500+",
-    label: "Hours Automated Monthly",
-    subtext: "Eliminating manual bottlenecks across healthcare, sales, & content ops"
+    label: "Hours Saved Every Month",
+    subtext: "Eliminating repetitive daily tasks across sales, healthcare, and operations"
   },
   {
     id: "m-2",
     value: "15+",
-    label: "Enterprise Workflows Deployed",
-    subtext: "Production-grade n8n, Make.com, & custom LLM systems"
+    label: "Live Automations Built",
+    subtext: "Reliable workflows running on n8n, Make, and custom AI setups"
   },
   {
     id: "m-3",
     value: "99.9%",
-    label: "Pipeline Reliability & Uptime",
-    subtext: "Fault-tolerant error handlers, token auth, and deduplication"
+    label: "System Reliability",
+    subtext: "Built with error handling, instant notifications, and automatic retries"
   },
   {
     id: "m-4",
     value: "4+",
-    label: "Live Web & Mobile Deployments",
-    subtext: "High-converting web portals, SaaS platforms, & Play Store apps"
+    label: "Live Web and Mobile Apps",
+    subtext: "Active web platforms, client portals, and Google Play apps"
   }
 ];

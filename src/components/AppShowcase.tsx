@@ -13,8 +13,8 @@ export const AppShowcase: React.FC = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionHeader
           title="Mobile Apps on Google Play"
-          subheadline="Native & cross-platform mobile applications published and live on the Google Play Store."
-          badge="Play Store App Showcase"
+          subheadline="Mobile applications built with Flutter and published on the Google Play Store."
+          badge="Mobile Apps"
           icon={Smartphone}
         />
 
@@ -148,10 +148,10 @@ export const AppShowcase: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 flex flex-col justify-end p-6">
                       <span className="px-3 py-1 rounded-full bg-blue-600/90 text-white text-[10px] font-bold uppercase tracking-wider w-fit mb-2">
-                        Active Recall Mode
+                        Practice Mode
                       </span>
                       <h4 className="text-white font-bold text-base leading-tight">
-                        AI-Powered Flashcard & MCQ Engine
+                        Interactive Flashcards and Quizzes
                       </h4>
                     </div>
                   </div>
