@@ -3,7 +3,7 @@ export interface WebProject {
   title: string;
   image: string;
   link: string;
-  category: 'Healthcare' | 'SaaS & EdTech' | 'Utilities' | 'E-Commerce' | 'All';
+  category: 'Healthcare' | 'EdTech' | 'Utilities' | 'E-Commerce' | 'All';
   valueStatement: string;
   explanation: string;
   techStack: string[];
@@ -50,7 +50,7 @@ export interface Certificate {
   issueDate: string;
   credentialUrl?: string;
   image: string;
-  category: 'Competition & Hackathon' | 'AI & Automation' | 'Full-Stack Development' | 'Professional';
+  category: 'Hackathons' | 'Automation' | 'Development' | 'Professional';
   isWinningAward?: boolean;
   awardRank?: string; // e.g. "1st Place Winner", "Top 1% Distinction"
   description: string;

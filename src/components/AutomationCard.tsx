@@ -15,7 +15,11 @@ export const AutomationCard: React.FC<AutomationCardProps> = ({ project, onClick
       whileHover={{ y: -6, scale: 1.01 }}
       transition={{ duration: 0.3 }}
       onClick={onClick}
-      className="group cursor-pointer glass-card rounded-2xl overflow-hidden flex flex-col justify-between hover:border-indigo-500/40 hover:shadow-2xl hover:shadow-indigo-500/10 transition-all"
+      onKeyDown={(e: React.KeyboardEvent) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick(); } }}
+      role="button"
+      tabIndex={0}
+      aria-label={`View details for ${project.title}`}
+      className="group cursor-pointer glass-card rounded-2xl overflow-hidden flex flex-col justify-between hover:border-indigo-500/40 hover:shadow-2xl hover:shadow-indigo-500/10 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-[#050507]"
     >
       <div>
         {/* Preview image */}

@@ -7,8 +7,8 @@ export const webProjects: WebProject[] = [
     image: "https://i.ibb.co/VpLR3TNQ/Dr-Rahat.png",
     link: "https://dental.hamza-systems.tech/",
     category: "Healthcare",
-    valueStatement: "Patient booking portal and clinic website for maternal healthcare.",
-    explanation: "A responsive website built for a maternal healthcare practice in Lahore. It helps patients check services, review clinic timings, and book consultations directly through WhatsApp.",
+    valueStatement: "Patient booking portal and clinic website for dental healthcare.",
+    explanation: "A responsive website built for a dental healthcare practice in Lahore. It helps patients check services, review clinic timings, and book consultations directly through WhatsApp.",
     techStack: ["React", "Node.js", "Tailwind CSS", "WhatsApp Routing"],
     isFeatured: true
   },

@@ -32,6 +32,20 @@ export const Hero: React.FC = () => {
         initial="hidden"
         animate="visible"
       >
+        {/* Profile Photo */}
+        <motion.div variants={itemVariants} className="relative mb-8 flex justify-center mt-2">
+          <div className="relative">
+            <div className="absolute inset-0 bg-blue-500/20 blur-[60px] rounded-full" />
+            <div className="relative p-[3px] rounded-full bg-gradient-to-br from-blue-600 to-indigo-600">
+              <img 
+                src="/Images/Image.png" 
+                alt="Muhammad Hamza" 
+                className="w-40 h-40 lg:w-56 lg:h-56 rounded-full object-cover"
+              />
+            </div>
+          </div>
+        </motion.div>
+
         {/* Availability Badge */}
         <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-3 mb-8">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold tracking-wide backdrop-blur-md">

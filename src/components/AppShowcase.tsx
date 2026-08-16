@@ -138,10 +138,10 @@ export const AppShowcase: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 flex flex-col justify-end p-6">
                       <span className="px-3 py-1 rounded-full bg-blue-600/90 text-white text-[10px] font-bold uppercase tracking-wider w-fit mb-2">
-                        Study Mode
+                        {app.category}
                       </span>
                       <h4 className="text-white font-bold text-base leading-tight">
-                        Interactive Flashcards and Quizzes
+                        {app.highlights[0]}
                       </h4>
                     </div>
                   </div>

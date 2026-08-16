@@ -10,6 +10,7 @@ interface AutomationModalProps {
 
 export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClose }) => {
   const [activeTab, setActiveTab] = useState<"flow" | "mechanics" | "impact">("flow");
+  const closeButtonRef = React.useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -18,6 +19,10 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onClose]);
+
+  useEffect(() => {
+    closeButtonRef.current?.focus();
+  }, []);
 
   return (
     <>
@@ -47,6 +52,7 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
             <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c12] via-[#0c0c12]/40 to-transparent" />
 
             <button
+              ref={closeButtonRef}
               onClick={onClose}
               className="absolute top-4 right-4 p-2.5 bg-black/60 hover:bg-black/90 text-white rounded-full backdrop-blur-md border border-white/10 transition-colors"
               aria-label="Close modal"

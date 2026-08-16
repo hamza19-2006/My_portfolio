@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { SectionHeader } from "./SectionHeader";
 import { CertificateCard } from "./CertificateCard";
@@ -9,6 +9,17 @@ import { Award, Trophy, X, ExternalLink, ShieldCheck } from "lucide-react";
 export const Certificates: React.FC = () => {
   const [selectedCert, setSelectedCert] = useState<Certificate | null>(null);
   const [activeCategory, setActiveCategory] = useState<string>("All");
+
+  useEffect(() => {
+    if (selectedCert) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedCert]);
 
   const categories = ["All", "Hackathons", "Automation", "Development"];
 

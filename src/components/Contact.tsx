@@ -85,7 +85,7 @@ export const Contact: React.FC = () => {
             <div className="space-y-3">
               {/* WhatsApp */}
               <a
-                href="https://wa.me/923097719166?text=Hello%20Hamza,%20I%20would%20like%20to%20discuss%20a%20project."
+                href="https://wa.me/923032172766?text=Hello%20Hamza,%20I%20would%20like%20to%20discuss%20a%20project."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-card rounded-2xl p-4 flex items-center justify-between hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all group"
@@ -98,7 +98,7 @@ export const Contact: React.FC = () => {
                     <h4 className="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">
                       WhatsApp
                     </h4>
-                    <span className="text-xs text-zinc-400 font-mono">+92 309 7719166</span>
+                    <span className="text-xs text-zinc-400 font-mono">+92 303 2172766</span>
                   </div>
                 </div>
                 <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />

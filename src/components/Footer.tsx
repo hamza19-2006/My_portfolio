@@ -47,7 +47,7 @@ export const Footer: React.FC = () => {
             <Linkedin className="w-4 h-4" />
           </a>
           <a
-            href="https://wa.me/923097719166?text=Hello%20Hamza,%20I%20would%20like%20to%20discuss%20a%20project."
+            href="https://wa.me/923032172766?text=Hello%20Hamza,%20I%20would%20like%20to%20discuss%20a%20project."
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-emerald-400 transition-colors"

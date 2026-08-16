@@ -26,9 +26,18 @@ export const About: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7 space-y-6 text-zinc-300 text-base sm:text-lg leading-relaxed font-normal"
           >
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              Connecting <span className="text-blue-400">smart automation</span> with <span className="text-indigo-400">everyday business workflows</span>.
-            </h3>
+            <div className="flex flex-col sm:flex-row gap-6 items-start">
+              <div className="shrink-0 p-[2px] rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 shadow-xl shadow-blue-500/10">
+                <img 
+                  src="/Images/Image.png" 
+                  alt="Muhammad Hamza" 
+                  className="w-24 h-24 lg:w-32 lg:h-32 rounded-2xl object-cover"
+                />
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight pt-2">
+                Connecting <span className="text-blue-400">smart automation</span> with <span className="text-indigo-400">everyday business workflows</span>.
+              </h3>
+            </div>
 
             <p>
               I am an <strong className="text-white font-semibold">n8n Automation Specialist and Full-Stack Developer</strong> based in Lahore, Pakistan. I build reliable automated workflows, connect business software through APIs, and rapidly ship clean web and mobile applications.

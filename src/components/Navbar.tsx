@@ -8,36 +8,44 @@ export const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
+    let rafId = 0;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 30);
 
-      const sections = ["web-deployments", "app-showcase", "automations", "certificates", "skills", "about", "contact"];
-      const scrollPos = window.scrollY + 200;
+        const sections = ["about", "web-deployments", "app-showcase", "automations", "certificates", "skills", "resume", "contact"];
+        const scrollPos = window.scrollY + 200;
 
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(sectionId);
-            break;
+        for (const sectionId of sections) {
+          const el = document.getElementById(sectionId);
+          if (el) {
+            const top = el.offsetTop;
+            const height = el.offsetHeight;
+            if (scrollPos >= top && scrollPos < top + height) {
+              setActiveSection(sectionId);
+              break;
+            }
           }
         }
-      }
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const navLinks = [
+    { label: "About", href: "#about" },
     { label: "Web Apps", href: "#web-deployments" },
     { label: "Mobile Apps", href: "#app-showcase" },
     { label: "Automations", href: "#automations" },
     { label: "Certificates", href: "#certificates" },
     { label: "Skills", href: "#skills" },
-    { label: "About", href: "#about" },
+    { label: "Resume", href: "#resume" },
   ];
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -125,7 +133,7 @@ export const Navbar: React.FC = () => {
               <Linkedin className="w-4 h-4" />
             </a>
             <a
-              href="https://wa.me/923097719166?text=Hello%20M.Hamza%20!%20I%20want%20Your%20Help"
+              href="https://wa.me/923032172766?text=Hello%20M.Hamza%20!%20I%20want%20Your%20Help"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg text-zinc-400 hover:text-emerald-400 hover:bg-white/5 border border-transparent hover:border-white/10 transition-all"
@@ -195,7 +203,7 @@ export const Navbar: React.FC = () => {
                     <Linkedin className="w-5 h-5" />
                   </a>
                   <a
-                    href="https://wa.me/923097719166?text=Hello%20M.Hamza%20!%20I%20want%20Your%20Help"
+                    href="https://wa.me/923032172766?text=Hello%20M.Hamza%20!%20I%20want%20Your%20Help"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 rounded-xl bg-white/5 text-zinc-300 hover:text-emerald-400"

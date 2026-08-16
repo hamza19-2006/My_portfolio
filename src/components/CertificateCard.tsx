@@ -24,7 +24,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ cert, onPrevie
     >
       <div>
         {/* Certificate Preview Image */}
-        <div className="relative aspect-[16/10] overflow-hidden bg-zinc-900 cursor-pointer" onClick={() => onPreview(cert)}>
+        <div className="relative aspect-[16/10] overflow-hidden bg-zinc-900 cursor-pointer" onClick={() => onPreview(cert)} onKeyDown={(e: React.KeyboardEvent) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onPreview(cert); } }} role="button" tabIndex={0} aria-label={`Preview ${cert.title} certificate`}>
           <img
             src={cert.image}
             alt={cert.title}
