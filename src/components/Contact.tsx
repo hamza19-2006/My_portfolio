@@ -25,29 +25,27 @@ export const Contact: React.FC = () => {
     setIsSubmitting(true);
     setErrorMessage("");
 
-    // If an n8n webhook or Google Apps Script URL is provided, send the query directly:
+    // If a Google Apps Script or Webhook URL is provided, send directly:
     if (GOOGLE_SHEET_WEBHOOK_URL.trim()) {
       try {
-        const response = await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            projectType: formData.projectType,
-            message: formData.message,
-            submittedAt: new Date().toISOString()
-          })
-        });
+        const payload = {
+          name: formData.name,
+          email: formData.email,
+          projectType: formData.projectType,
+          message: formData.message,
+          submittedAt: new Date().toLocaleString()
+        };
 
-        if (!response.ok) {
-          throw new Error("Failed to post to webhook");
-        }
+        await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+          method: "POST",
+          mode: "no-cors", // Required for Google Apps Script web apps to prevent CORS errors
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
 
         setIsSubmitted(true);
       } catch (err) {
         console.error("Form Submission Error:", err);
-        // Fallback: If webhook fails, open email client so inquiry is never lost
         const subject = encodeURIComponent(`Project Inquiry: ${formData.projectType} from ${formData.name}`);
         const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nProject Type: ${formData.projectType}\n\nMessage:\n${formData.message}`);
         window.open(`mailto:hamzanoorallah@gmail.com?subject=${subject}&body=${body}`, "_blank");
