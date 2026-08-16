@@ -3,9 +3,8 @@ import { motion } from "motion/react";
 import { SectionHeader } from "./SectionHeader";
 import { Mail, Github, Linkedin, MessageSquare, Send, CheckCircle2, ArrowRight, Loader2, AlertCircle } from "lucide-react";
 
-// 💡 PASTE YOUR N8N WEBHOOK OR GOOGLE APPS SCRIPT URL HERE:
-// When empty, it falls back to preparing an instant email to hamzanoorallah@gmail.com
-export const GOOGLE_SHEET_WEBHOOK_URL = ""; 
+// 💡 LIVE GOOGLE SHEET ENDPOINT (Google Apps Script):
+export const GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbypj3VHHM19h_PVbR-NO7jcLvbvXl0Y0G_-0WSFZobIu2peHRm0MjiJetegklvCbU242g/exec"; 
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -48,7 +47,7 @@ export const Contact: React.FC = () => {
         console.error("Form Submission Error:", err);
         const subject = encodeURIComponent(`Project Inquiry: ${formData.projectType} from ${formData.name}`);
         const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nProject Type: ${formData.projectType}\n\nMessage:\n${formData.message}`);
-        window.open(`mailto:hamzanoorallah@gmail.com?subject=${subject}&body=${body}`, "_blank");
+        window.open(`mailto:hn955779@gmail.com?subject=${subject}&body=${body}`, "_blank");
         setIsSubmitted(true);
       } finally {
         setIsSubmitting(false);
@@ -57,7 +56,7 @@ export const Contact: React.FC = () => {
       // Default: Direct email client preparation
       const subject = encodeURIComponent(`Project Inquiry: ${formData.projectType} from ${formData.name}`);
       const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nProject Type: ${formData.projectType}\n\nMessage:\n${formData.message}`);
-      window.open(`mailto:hamzanoorallah@gmail.com?subject=${subject}&body=${body}`, "_blank");
+      window.open(`mailto:hn955779@gmail.com?subject=${subject}&body=${body}`, "_blank");
       setIsSubmitting(false);
       setIsSubmitted(true);
     }
@@ -112,7 +111,7 @@ export const Contact: React.FC = () => {
 
               {/* Email */}
               <a
-                href="mailto:hamzanoorallah@gmail.com"
+                href="mailto:hn955779@gmail.com"
                 className="glass-card rounded-2xl p-4 flex items-center justify-between hover:border-blue-500/40 hover:bg-blue-500/5 transition-all group"
               >
                 <div className="flex items-center gap-3.5">
@@ -123,7 +122,7 @@ export const Contact: React.FC = () => {
                     <h4 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">
                       Email Inbox
                     </h4>
-                    <span className="text-xs text-zinc-400 font-mono">hamzanoorallah@gmail.com</span>
+                    <span className="text-xs text-zinc-400 font-mono">hn955779@gmail.com</span>
                   </div>
                 </div>
                 <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />

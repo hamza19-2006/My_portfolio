@@ -56,7 +56,7 @@ export const Footer: React.FC = () => {
             <MessageSquare className="w-4 h-4" />
           </a>
           <a
-            href="mailto:hamzanoorallah@gmail.com"
+            href="mailto:hn955779@gmail.com"
             className="hover:text-blue-400 transition-colors"
             aria-label="Email"
           >
