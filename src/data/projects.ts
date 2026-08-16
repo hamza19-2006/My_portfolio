@@ -5,7 +5,7 @@ export const webProjects: WebProject[] = [
     id: "web-2",
     title: "Dr. Rahat’s Maternal Health Clinic",
     image: "https://i.ibb.co/VpLR3TNQ/Dr-Rahat.png",
-    link: "https://clinic.hamza-systems.tech/",
+    link: "https://dental.hamza-systems.tech/",
     category: "Healthcare",
     valueStatement: "Empathetic Patient Acquisition Hub with Clinical Guardrails.",
     explanation: "Focused on an empathetic, accessible UI/UX designed specifically for Gynaecology and Obstetrics patients. Utilizes a Symptom-Aware AI Assistant acting as an intelligent receptionist with clinical safety guardrails. Serves as a centralized multi-facility appointment routing portal managing patient intake across major tertiary hospitals.",
