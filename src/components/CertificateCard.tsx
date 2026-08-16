@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-import { Award, Trophy, ExternalLink, CheckCircle2, ShieldCheck } from "lucide-react";
+import { Trophy, ExternalLink, ShieldCheck } from "lucide-react";
 import { Certificate } from "../types/portfolio";
 
 interface CertificateCardProps {
@@ -38,19 +38,19 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ cert, onPrevie
             {cert.isWinningAward ? (
               <span className="px-3 py-1 bg-gradient-to-r from-amber-500 to-yellow-500 text-zinc-950 font-extrabold text-[10px] uppercase tracking-wider rounded-full shadow-lg flex items-center gap-1.5">
                 <Trophy className="w-3.5 h-3.5 fill-current" />
-                {cert.awardRank || "Competition Champion"}
+                {cert.awardRank || "1st Place Winner"}
               </span>
             ) : (
               <span className="px-3 py-1 bg-blue-600/30 border border-blue-400/40 text-blue-300 text-[10px] font-bold uppercase tracking-wider rounded-full backdrop-blur-md flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                {cert.awardRank || "Verified Credential"}
+                {cert.awardRank || "Certified"}
               </span>
             )}
           </div>
 
           <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
             <span className="px-3 py-1 bg-black/70 text-white rounded-lg text-xs backdrop-blur-md border border-white/10 flex items-center gap-1.5">
-              Click to Inspect
+              Click to View
             </span>
           </div>
         </div>
@@ -90,12 +90,12 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ cert, onPrevie
           onClick={() => onPreview(cert)}
           className="text-xs font-semibold text-blue-400 hover:text-white flex items-center gap-1.5 transition-colors"
         >
-          <span>View Verification</span>
+          <span>View Certificate</span>
           <ExternalLink className="w-3.5 h-3.5" />
         </button>
 
         <span className="text-[11px] text-zinc-500 font-mono">
-          Verified ID
+          Verified
         </span>
       </div>
     </motion.div>

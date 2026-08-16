@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "motion/react";
 import { SectionHeader } from "./SectionHeader";
 import { playStoreApps } from "../data/apps";
-import { Smartphone, Star, Download, Sparkles, CheckCircle2, ArrowUpRight } from "lucide-react";
+import { Smartphone, CheckCircle2, ArrowUpRight } from "lucide-react";
 
 export const AppShowcase: React.FC = () => {
   return (
@@ -44,38 +44,29 @@ export const AppShowcase: React.FC = () => {
                         </span>
                         <span className="text-xs text-zinc-500 font-mono">v{app.version}</span>
                       </div>
-                      <h3 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
+                      <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                         {app.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-zinc-400 font-medium">
-                        {app.category}
-                      </p>
                     </div>
                   </div>
 
-                  {/* Rating & Stats Bar */}
-                  <div className="flex items-center gap-6 py-3 px-5 rounded-2xl bg-white/[0.03] border border-white/[0.06] mb-6 w-fit">
+                  {/* Rating & Stats Strip */}
+                  <div className="flex flex-wrap items-center gap-4 sm:gap-6 py-3 px-4 rounded-2xl bg-white/[0.03] border border-white/[0.08] mb-6 w-fit">
                     <div className="flex items-center gap-1.5">
-                      <div className="flex text-amber-400">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                        ))}
-                      </div>
-                      <span className="text-sm font-bold text-white ml-1">{app.rating}</span>
-                      <span className="text-xs text-zinc-500">({app.ratingCount})</span>
+                      <span className="text-amber-400 font-bold text-sm">★ {app.rating}</span>
+                      <span className="text-zinc-500 text-xs font-normal">({app.ratingCount})</span>
                     </div>
-
-                    <div className="h-4 w-[1px] bg-white/10" />
-
-                    <div className="flex items-center gap-2">
-                      <Download className="w-4 h-4 text-blue-400" />
-                      <span className="text-sm font-bold text-white">{app.downloads}</span>
-                      <span className="text-xs text-zinc-500">Installs</span>
+                    <div className="w-1 h-3 bg-white/10 rounded-full" />
+                    <div className="text-xs text-zinc-300 font-medium">
+                      <span className="text-white font-bold">{app.downloads}</span> Downloads
+                    </div>
+                    <div className="w-1 h-3 bg-white/10 rounded-full" />
+                    <div className="text-xs text-zinc-400">
+                      {app.category}
                     </div>
                   </div>
 
-                  {/* Tagline & Description */}
-                  <p className="text-base sm:text-lg text-zinc-300 font-normal leading-relaxed mb-6">
+                  <p className="text-sm sm:text-base text-zinc-300 font-medium leading-relaxed mb-3">
                     {app.tagline}
                   </p>
 
@@ -111,20 +102,19 @@ export const AppShowcase: React.FC = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-white font-bold border border-white/20 hover:border-emerald-500/50 shadow-xl transition-all group"
                   >
-                    {/* Google Play Vector Icon */}
                     <svg className="w-6 h-6 fill-current text-white group-hover:text-emerald-400 transition-colors" viewBox="0 0 24 24">
                       <path d="M3.609 1.814L13.792 12 3.61 22.186c-.352-.303-.61-.795-.61-1.423V3.237c0-.628.258-1.12.61-1.423zM15.207 13.414l2.766 2.766-12.75 7.361 9.984-10.127zm0-2.828L5.223.459l12.75 7.361-2.766 2.766zM16.621 12l3.414-1.971c.883-.51 1.465.072 1.465.971 0 .899-.582 1.481-1.465.971L16.621 12z" />
                     </svg>
                     <div className="flex flex-col text-left">
                       <span className="text-[10px] text-zinc-400 uppercase tracking-widest font-mono">Get It On</span>
-                      <span className="text-sm font-black tracking-wide">Google Play</span>
+                      <span className="text-sm font-bold tracking-wide">Google Play</span>
                     </div>
                     <ArrowUpRight className="w-4 h-4 text-zinc-500 group-hover:text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all ml-1" />
                   </a>
 
                   {app.packageName && (
                     <span className="text-xs font-mono text-zinc-500">
-                      ID: {app.packageName}
+                      Package: {app.packageName}
                     </span>
                   )}
                 </div>
@@ -148,7 +138,7 @@ export const AppShowcase: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 flex flex-col justify-end p-6">
                       <span className="px-3 py-1 rounded-full bg-blue-600/90 text-white text-[10px] font-bold uppercase tracking-wider w-fit mb-2">
-                        Practice Mode
+                        Study Mode
                       </span>
                       <h4 className="text-white font-bold text-base leading-tight">
                         Interactive Flashcards and Quizzes

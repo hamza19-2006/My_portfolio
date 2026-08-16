@@ -11,9 +11,9 @@ export const About: React.FC = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionHeader
-          title="About My Work"
+          title="About Me"
           subheadline="Building reliable automation systems and responsive apps that solve real business problems."
-          badge="About Me"
+          badge="Background"
           icon={User}
         />
 
@@ -27,15 +27,15 @@ export const About: React.FC = () => {
             className="lg:col-span-7 space-y-6 text-zinc-300 text-base sm:text-lg leading-relaxed font-normal"
           >
             <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              Connecting <span className="text-blue-400">smart automation</span> with <span className="text-indigo-400">real day to day business needs</span>.
+              Connecting <span className="text-blue-400">smart automation</span> with <span className="text-indigo-400">everyday business workflows</span>.
             </h3>
 
             <p>
-              I am an <strong className="text-white font-semibold">n8n Automation Specialist and Developer</strong> based in Lahore, Pakistan. I build automated workflows, connect business tools together, and quickly deliver clean mobile and web applications.
+              I am an <strong className="text-white font-semibold">n8n Automation Specialist and Full-Stack Developer</strong> based in Lahore, Pakistan. I build reliable automated workflows, connect business software through APIs, and rapidly ship clean web and mobile applications.
             </p>
 
             <p>
-              My primary focus is <strong className="text-white font-semibold">building workflows in n8n</strong> that eliminate manual work. Whether it is syncing customer leads across CRMs, sending instant alerts to WhatsApp, or setting up AI assistants to answer questions, I make sure systems run smoothly around the clock.
+              My primary focus is <strong className="text-white font-semibold">building workflows in n8n</strong> that eliminate repetitive manual work. Whether it is syncing customer leads across CRMs, sending real-time notifications to WhatsApp, or integrating AI assistants to answer questions, I make sure the whole pipeline runs smoothly.
             </p>
 
             <div className="pt-4 flex flex-wrap gap-4 text-xs font-semibold text-zinc-400">
@@ -43,7 +43,7 @@ export const About: React.FC = () => {
                 <MapPin className="w-3.5 h-3.5 text-blue-400" /> Lahore, Pakistan and Remote Worldwide
               </span>
               <span className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" /> n8n Specialist and AI Builder
+                <Sparkles className="w-3.5 h-3.5 text-amber-400" /> n8n Automation & Full-Stack Development
               </span>
             </div>
           </motion.div>
@@ -64,7 +64,7 @@ export const About: React.FC = () => {
                 <h4 className="text-base font-bold text-white">Automated Workflows</h4>
               </div>
               <p className="text-xs text-zinc-400 leading-relaxed">
-                Replacing repetitive manual work with instant lead capture, spreadsheet syncs, and WhatsApp alerts.
+                Replacing manual tasks with instant lead capture, spreadsheet syncing, and WhatsApp notifications.
               </p>
             </div>
 
@@ -73,7 +73,7 @@ export const About: React.FC = () => {
                 <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-400">
                   <Cpu className="w-5 h-5" />
                 </div>
-                <h4 className="text-base font-bold text-white">Smart AI Assistants</h4>
+                <h4 className="text-base font-bold text-white">Practical AI Assistants</h4>
               </div>
               <p className="text-xs text-zinc-400 leading-relaxed">
                 Using vision and language models to understand customer questions, summarize notes, and handle support requests.
@@ -85,7 +85,7 @@ export const About: React.FC = () => {
                 <div className="p-2 rounded-lg bg-purple-500/10 text-purple-400">
                   <Shield className="w-5 h-5" />
                 </div>
-                <h4 className="text-base font-bold text-white">Clean and Reliable Setup</h4>
+                <h4 className="text-base font-bold text-white">Clean and Reliable Code</h4>
               </div>
               <p className="text-xs text-zinc-400 leading-relaxed">
                 Setting up error logs, secure webhooks, and automatic retry steps so systems do not fail unexpectedly.

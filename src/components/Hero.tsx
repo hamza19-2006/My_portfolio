@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, Variants } from "motion/react";
-import { ArrowRight, Workflow, Globe, Sparkles, Terminal, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Workflow, Globe, Terminal, CheckCircle2 } from "lucide-react";
 
 export const Hero: React.FC = () => {
   const containerVariants: Variants = {
@@ -39,12 +39,12 @@ export const Hero: React.FC = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span>Available for Enterprise & Freelance Projects</span>
+            <span>Available for Client Projects and Consulting</span>
           </div>
 
           <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-zinc-400 text-xs font-medium backdrop-blur-md">
             <Terminal className="w-3.5 h-3.5 text-blue-400" />
-            <span>n8n • LLM Agents • Full-Stack</span>
+            <span>n8n, AI Systems, and Web Apps</span>
           </div>
         </motion.div>
 
@@ -55,7 +55,7 @@ export const Hero: React.FC = () => {
         >
           AI Automation Specialist <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">
-            & Full-Stack Engineer
+            & Full-Stack Developer
           </span>
         </motion.h1>
 
@@ -64,7 +64,7 @@ export const Hero: React.FC = () => {
           variants={itemVariants}
           className="text-lg sm:text-xl md:text-2xl text-zinc-400 mb-10 max-w-3xl mx-auto leading-relaxed font-normal"
         >
-          I design autonomous AI workflows, multi-modal LLM agents, and high-conversion web applications that replace repetitive operations and scale businesses with precision.
+          I build custom n8n workflows, intelligent AI integrations, and fast web & mobile applications that eliminate repetitive manual tasks.
         </motion.p>
 
         {/* Action Buttons */}
@@ -74,25 +74,25 @@ export const Hero: React.FC = () => {
         >
           <a
             href="#automations"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-white text-zinc-950 font-bold text-sm uppercase tracking-wider hover:bg-zinc-100 hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-white text-zinc-950 font-bold text-sm tracking-wide hover:bg-zinc-100 hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] transition-all transform hover:-translate-y-0.5 active:translate-y-0"
           >
             <Workflow className="w-4 h-4 text-zinc-950" />
-            <span>Explore Automations</span>
+            <span>View Automations</span>
           </a>
 
           <a
             href="#web-deployments"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-white font-bold text-sm uppercase tracking-wider border border-white/10 hover:border-white/20 transition-all backdrop-blur-md transform hover:-translate-y-0.5 active:translate-y-0"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-white font-bold text-sm tracking-wide border border-white/10 hover:border-white/20 transition-all backdrop-blur-md transform hover:-translate-y-0.5 active:translate-y-0"
           >
             <Globe className="w-4 h-4 text-blue-400" />
-            <span>Live Deployments</span>
+            <span>Live Projects</span>
           </a>
 
           <a
             href="#contact"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-blue-600/10 hover:bg-blue-600/20 text-blue-400 border border-blue-500/20 text-sm font-semibold tracking-wide transition-all"
           >
-            <span>Let's Talk</span>
+            <span>Get in Touch</span>
             <ArrowRight className="w-4 h-4" />
           </a>
         </motion.div>

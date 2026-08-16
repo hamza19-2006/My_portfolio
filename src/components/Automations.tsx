@@ -5,7 +5,7 @@ import { AutomationCard } from "./AutomationCard";
 import { AutomationModal } from "./AutomationModal";
 import { automationArchitectures } from "../data/automations";
 import { AutomationArchitecture } from "../types/portfolio";
-import { Code2, Workflow } from "lucide-react";
+import { Workflow } from "lucide-react";
 
 export const Automations: React.FC = () => {
   const [selected, setSelected] = useState<AutomationArchitecture | null>(null);
@@ -26,8 +26,8 @@ export const Automations: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           title="Automations and Workflow Logic"
-          subheadline="Real workflows handling lead capture, CRM syncing, and daily business tasks on autopilot."
-          badge="n8n and Automations"
+          subheadline="Live workflows handling lead capture, CRM syncing, and business tasks without manual effort."
+          badge="n8n Workflows"
           icon={Workflow}
         />
 

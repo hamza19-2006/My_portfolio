@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { X, ShieldCheck, TrendingUp, Cpu, Workflow, CheckCircle2, ArrowRight } from "lucide-react";
+import { X, ShieldCheck, TrendingUp, Cpu, Workflow } from "lucide-react";
 import { AutomationArchitecture } from "../types/portfolio";
 
 interface AutomationModalProps {

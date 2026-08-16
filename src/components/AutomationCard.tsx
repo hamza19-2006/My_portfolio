@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-import { Workflow, Layers, ArrowUpRight } from "lucide-react";
+import { Workflow, ArrowUpRight } from "lucide-react";
 import { AutomationArchitecture } from "../types/portfolio";
 
 interface AutomationCardProps {
@@ -68,10 +68,10 @@ export const AutomationCard: React.FC<AutomationCardProps> = ({ project, onClick
       <div className="px-6 pb-6 pt-2 border-t border-white/5 flex items-center justify-between">
         <span className="text-xs font-semibold text-indigo-400 group-hover:text-white flex items-center gap-1.5 transition-colors">
           <Workflow className="w-3.5 h-3.5" />
-          <span>View Workflow Details</span>
+          <span>View Workflow</span>
         </span>
         <span className="text-[11px] text-zinc-500 font-mono">
-          n8n / API
+          n8n Workflow
         </span>
       </div>
     </motion.div>

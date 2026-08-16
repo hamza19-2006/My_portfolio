@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-import { ExternalLink, CheckCircle } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { WebProject } from "../types/portfolio";
 
 interface WebDeploymentCardProps {
@@ -48,8 +48,8 @@ export const WebDeploymentCard: React.FC<WebDeploymentCardProps> = ({ project })
             {project.title}
           </h3>
 
-          <p className="text-blue-400/90 text-xs sm:text-sm font-medium mb-3 italic">
-            "{project.valueStatement}"
+          <p className="text-blue-400/90 text-xs sm:text-sm font-medium mb-3">
+            {project.valueStatement}
           </p>
 
           <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
@@ -76,15 +76,15 @@ export const WebDeploymentCard: React.FC<WebDeploymentCardProps> = ({ project })
           href={project.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-white font-bold text-xs sm:text-sm tracking-wider uppercase group-hover:text-blue-400 transition-all"
+          className="inline-flex items-center gap-2 text-white font-bold text-xs sm:text-sm tracking-wide group-hover:text-blue-400 transition-all"
         >
-          <span>Live Deployment</span>
+          <span>View Live Project</span>
           <ExternalLink className="w-4 h-4 text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
         </a>
 
         <span className="text-[11px] text-emerald-400 flex items-center gap-1.5 font-medium">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          Production Live
+          Live
         </span>
       </div>
     </motion.div>

@@ -7,7 +7,7 @@ import { Cpu, CheckCircle2, Code2, Network, Bot, Workflow } from "lucide-react";
 const categoryIcons: Record<string, React.ReactNode> = {
   orchestration: <Workflow className="w-5 h-5 text-blue-400" />,
   "ai-llm": <Bot className="w-5 h-5 text-indigo-400" />,
-  fullstack: <Code2 className="w-5 h-5 text-purple-400" />,
+  "vibe-engineering": <Code2 className="w-5 h-5 text-purple-400" />,
   integrations: <Network className="w-5 h-5 text-emerald-400" />
 };
 
@@ -17,8 +17,8 @@ export const SkillsMatrix: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           title="Skills and Tools"
-          subheadline="The core tools and technologies I use every day to build automations, apps, and web platforms."
-          badge="Skills and Stack"
+          subheadline="The core tools and technologies I use to build automations, apps, and web platforms."
+          badge="Stack"
           icon={Cpu}
         />
 

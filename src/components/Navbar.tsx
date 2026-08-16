@@ -137,7 +137,7 @@ export const Navbar: React.FC = () => {
             <a
               href="#contact"
               onClick={(e) => scrollToSection(e, "#contact")}
-              className="ml-2 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30 transition-all"
+              className="ml-2 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-bold tracking-wide shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30 transition-all"
             >
               <span>Get in Touch</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -208,7 +208,7 @@ export const Navbar: React.FC = () => {
                   onClick={(e) => scrollToSection(e, "#contact")}
                   className="px-5 py-3 rounded-xl bg-blue-600 text-white font-bold text-sm tracking-wide"
                 >
-                  Contact Me
+                  Get in Touch
                 </a>
               </div>
             </nav>

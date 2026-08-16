@@ -26,7 +26,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       className={`mb-14 ${align === "center" ? "text-center mx-auto max-w-3xl" : "max-w-3xl"}`}
     >
       {badge && (
-        <div className={`inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider ${align === "center" ? "mx-auto" : ""}`}>
+        <div className={`inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wide ${align === "center" ? "mx-auto" : ""}`}>
           {Icon && <Icon className="w-3.5 h-3.5" />}
           <span>{badge}</span>
         </div>
@@ -38,7 +38,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
             <Icon className="w-5 h-5" />
           </div>
         )}
-        <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white uppercase">
+        <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
           {title}
         </h2>
       </div>

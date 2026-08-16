@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { SectionHeader } from "./SectionHeader";
 import { WebDeploymentCard } from "./WebDeploymentCard";
 import { webProjects } from "../data/projects";
-import { Globe, Sparkles } from "lucide-react";
+import { Globe } from "lucide-react";
 
 export const WebDeployments: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
 
-  const categories = ["All", "Healthcare", "SaaS & EdTech", "Utilities"];
+  const categories = ["All", "Healthcare", "EdTech", "Utilities"];
 
   const filteredProjects =
     activeCategory === "All"
@@ -20,7 +20,7 @@ export const WebDeployments: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <SectionHeader
             title="Web Apps and Client Projects"
-            subheadline="Active web apps, client platforms, and online tools built for real users."
+            subheadline="Active web applications, client platforms, and online tools built for real users."
             badge="Web Projects"
             icon={Globe}
           />
@@ -43,8 +43,7 @@ export const WebDeployments: React.FC = () => {
           </div>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
             <WebDeploymentCard key={project.id} project={project} />
           ))}
