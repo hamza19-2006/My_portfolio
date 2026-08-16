@@ -3,10 +3,10 @@ import { PlayStoreApp } from "../types/portfolio";
 export const playStoreApps: PlayStoreApp[] = [
   {
     id: "app-1",
-    title: "Brutl Fitness & Arena",
-    tagline: "Gamified workout tracker, macro nutrition planner, and competitive fitness arena.",
-    description: "A fast, cross-platform mobile app engineered with Flutter. Features structured multi-week workout routines, dynamic calorie and macronutrient rings, hydration tracking, and a gamified Brutl Arena with streak badges and global leaderboards.",
-    packageName: "com.hamza.brutlfitness",
+    title: "Brutl Fitness",
+    tagline: "Redefining fitness tracking through real-time consistency scoring, intelligent macro analytics, and gamified community competition.",
+    description: "Brutl Fitness is a high-performance Flutter mobile application engineered to turn daily workout and nutrition tracking into a dynamic, habit-building experience. Powered by custom algorithms and real-time cloud infrastructure, it empowers users to track health metrics while competing on global leaderboards.",
+    packageName: "com.brutl.fitness",
     playStoreUrl: "https://play.google.com/store/apps",
     icon: "/apps/logo.png",
     bannerImage: "/apps/ss2.jpeg",
@@ -21,10 +21,10 @@ export const playStoreApps: PlayStoreApp[] = [
     ratingCount: "150+ Reviews",
     downloads: "1,000+",
     highlights: [
-      "Brutl Score tracking for workout frequency and consistency",
-      "Macro and calorie calculator with daily nutrition targets",
-      "Structured workout splits for chest, back, and arms",
-      "Gamified Arena with streak badges and leaderboards"
+      "Proprietary Brutl Score (1–1000): Dynamically calculates a unified daily consistency metric based on step volume, completed workouts, and macro adherence.",
+      "Precision Macro Analytics: Intuitive ring visualizer providing real-time tracking of daily caloric intake alongside granular protein, carb, and fat distributions.",
+      "Gamified Arena & Leaderboards: Boosts user retention with milestone streak badges (First Pump, Hydro Hero, Step King) and real-time global rank competition.",
+      "Multi-Week Training Manager: Flexible split planner built for structuring custom workout routines with seamless offline-first persistence and cloud synchronization."
     ],
     techStack: ["Flutter", "Dart", "Firebase", "State Management", "REST APIs"]
   }

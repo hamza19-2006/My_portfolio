@@ -75,10 +75,10 @@ export const AppShowcase: React.FC = () => {
                   </p>
 
                   {/* Highlights Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8">
                     {app.highlights.map((highlight, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-xs text-zinc-300">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <div key={idx} className="flex items-start gap-2.5 text-xs text-zinc-300 leading-relaxed">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                         <span>{highlight}</span>
                       </div>
                     ))}
@@ -141,7 +141,7 @@ export const AppShowcase: React.FC = () => {
                         {app.category}
                       </span>
                       <h4 className="text-white font-bold text-base leading-tight">
-                        {app.highlights[0]}
+                        Brutl Score & Consistency Arena
                       </h4>
                     </div>
                   </div>
