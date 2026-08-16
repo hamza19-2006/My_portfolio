@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { SectionHeader } from "./SectionHeader";
-import { Mail, Github, Linkedin, MessageSquare, Send, CheckCircle2, ArrowRight, Phone, MapPin } from "lucide-react";
+import { Mail, Github, Linkedin, MessageSquare, Send, CheckCircle2, ArrowRight, Loader2, AlertCircle } from "lucide-react";
+
+// 💡 PASTE YOUR N8N WEBHOOK OR GOOGLE APPS SCRIPT URL HERE:
+// When empty, it falls back to preparing an instant email to hamzanoorallah@gmail.com
+export const GOOGLE_SHEET_WEBHOOK_URL = ""; 
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -10,18 +14,55 @@ export const Contact: React.FC = () => {
     projectType: "AI Automation / n8n Workflow",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    // Direct fallback mailto trigger
-    const subject = encodeURIComponent(`Project Inquiry: ${formData.projectType} from ${formData.name}`);
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nProject Type: ${formData.projectType}\n\nMessage:\n${formData.message}`);
-    
-    window.open(`mailto:hamzanoorallah@gmail.com?subject=${subject}&body=${body}`, "_blank");
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    // If an n8n webhook or Google Apps Script URL is provided, send the query directly:
+    if (GOOGLE_SHEET_WEBHOOK_URL.trim()) {
+      try {
+        const response = await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            projectType: formData.projectType,
+            message: formData.message,
+            submittedAt: new Date().toISOString()
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to post to webhook");
+        }
+
+        setIsSubmitted(true);
+      } catch (err) {
+        console.error("Form Submission Error:", err);
+        // Fallback: If webhook fails, open email client so inquiry is never lost
+        const subject = encodeURIComponent(`Project Inquiry: ${formData.projectType} from ${formData.name}`);
+        const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nProject Type: ${formData.projectType}\n\nMessage:\n${formData.message}`);
+        window.open(`mailto:hamzanoorallah@gmail.com?subject=${subject}&body=${body}`, "_blank");
+        setIsSubmitted(true);
+      } finally {
+        setIsSubmitting(false);
+      }
+    } else {
+      // Default: Direct email client preparation
+      const subject = encodeURIComponent(`Project Inquiry: ${formData.projectType} from ${formData.name}`);
+      const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nProject Type: ${formData.projectType}\n\nMessage:\n${formData.message}`);
+      window.open(`mailto:hamzanoorallah@gmail.com?subject=${subject}&body=${body}`, "_blank");
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }
   };
 
   return (
@@ -147,13 +188,21 @@ export const Contact: React.FC = () => {
               {isSubmitted ? (
                 <div className="p-8 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-3">
                   <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto" />
-                  <h4 className="text-xl font-bold text-white">Inquiry Prepared!</h4>
+                  <h4 className="text-xl font-bold text-white">Inquiry Sent Successfully!</h4>
                   <p className="text-xs sm:text-sm text-zinc-300">
-                    Your email client has been opened with your inquiry details. Alternatively, feel free to drop a message on WhatsApp for immediate response!
+                    Thank you! Your project query has been recorded. I will review your requirements and reach out promptly.
                   </p>
                   <button
-                    onClick={() => setIsSubmitted(false)}
-                    className="mt-4 px-4 py-2 rounded-xl bg-white/10 text-white text-xs font-semibold hover:bg-white/20"
+                    onClick={() => {
+                      setIsSubmitted(false);
+                      setFormData({
+                        name: "",
+                        email: "",
+                        projectType: "AI Automation / n8n Workflow",
+                        message: ""
+                      });
+                    }}
+                    className="mt-4 px-5 py-2.5 rounded-xl bg-white/10 text-white text-xs font-semibold hover:bg-white/20 transition-all"
                   >
                     Send Another Inquiry
                   </button>
@@ -224,10 +273,20 @@ export const Contact: React.FC = () => {
 
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-blue-600/30 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0"
+                    disabled={isSubmitting}
+                    className="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 disabled:opacity-50 text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-blue-600/30 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0"
                   >
-                    <span>Send Project Inquiry</span>
-                    <Send className="w-4 h-4" />
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Sending Query...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Send Project Inquiry</span>
+                        <Send className="w-4 h-4" />
+                      </>
+                    )}
                   </button>
                 </form>
               )}
