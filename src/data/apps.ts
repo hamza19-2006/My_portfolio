@@ -26,6 +26,6 @@ export const playStoreApps: PlayStoreApp[] = [
       "Offline Flashcard Generation with Spaced Repetition",
       "Cloud Sync & Zero-Latency Performance"
     ],
-    techStack: ["React Native", "TypeScript", "Gemini 1.5 Flash", "Supabase", "Tailwind Native"]
+    techStack: ["Flutter", "Dart", "AI-Engineered", "Gemini 1.5 Flash", "Supabase"]
   }
 ];

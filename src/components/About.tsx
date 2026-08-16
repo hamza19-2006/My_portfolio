@@ -31,11 +31,11 @@ export const About: React.FC = () => {
             </h3>
 
             <p>
-              I am an <strong className="text-white font-semibold">AI Automation Architect & Full-Stack Systems Engineer</strong> based in Lahore, Pakistan. I specialize in designing autonomous workflow engines, custom multi-modal AI agents, and high-performance web platforms for growing businesses, healthcare practices, and SaaS startups.
+              I am an <strong className="text-white font-semibold">n8n Automation Architect & AI Systems Engineer</strong> based in Lahore, Pakistan. I specialize in designing autonomous workflow engines, complex API pipelines, and deploying web & mobile applications at 10x speed through modern AI-assisted development (Vibe Coding).
             </p>
 
             <p>
-              Rather than building fragile prototypes, I focus on <strong className="text-white font-semibold">fault-tolerant, production-ready systems</strong>. From cryptographic manager approval gates and multi-tenant CRM deduplication to multi-modal document processing with Gemini 1.5, my architectures run silently and reliably 24/7.
+              My core mastery lies in <strong className="text-white font-semibold">deep n8n workflow architecture</strong>, multi-tenant CRM synchronizations, WhatsApp Business automations, and multi-modal LLM routing. I don't just connect tools—I architect robust, self-healing backbones that eliminate hundreds of hours of manual operations.
             </p>
 
             <div className="pt-4 flex flex-wrap gap-4 text-xs font-semibold text-zinc-400">
@@ -43,7 +43,7 @@ export const About: React.FC = () => {
                 <MapPin className="w-3.5 h-3.5 text-blue-400" /> Lahore, Pakistan (Open to Global Remote)
               </span>
               <span className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" /> n8n & LLM Agent Specialist
+                <Sparkles className="w-3.5 h-3.5 text-amber-400" /> n8n Master • Vibe Coder • AI Integrations
               </span>
             </div>
           </motion.div>

@@ -3,54 +3,54 @@ import { SkillCategory } from "../types/portfolio";
 export const skillCategories: SkillCategory[] = [
   {
     id: "orchestration",
-    title: "Workflow & Automation Orchestration",
-    description: "End-to-end resilient architecture connecting siloed business software into autonomous pipelines.",
+    title: "n8n Workflow & Automation Architecture (Primary Mastery)",
+    description: "Deep expertise in building complex, self-healing automated business systems and multi-step webhook pipelines.",
     skills: [
-      { name: "n8n Self-Hosted & Cloud", level: "Expert", isPrimary: true },
+      { name: "n8n (Self-Hosted & Cloud)", level: "Master / Expert", isPrimary: true },
       { name: "Make.com (Integromat)", level: "Advanced", isPrimary: true },
-      { name: "Custom Webhook Architecture", level: "Expert", isPrimary: true },
-      { name: "CRON Scheduling & Queues", level: "Advanced" },
-      { name: "Error Recovery & Retry Logic", level: "Advanced" },
-      { name: "Data Deduplication Engines", level: "Advanced" }
+      { name: "Custom Webhook & API Routing", level: "Expert", isPrimary: true },
+      { name: "JSON Data Parsing & Transforms", level: "Expert", isPrimary: true },
+      { name: "CRON Job Automation & Queues", level: "Expert" },
+      { name: "Fault-Tolerant Error Recovery", level: "Advanced" }
     ]
   },
   {
     id: "ai-llm",
-    title: "AI & LLM Systems Engineering",
-    description: "Multi-modal intelligence, autonomous agentic loops, prompt guardrails, and context modeling.",
+    title: "AI Agents & Advanced Prompt Engineering",
+    description: "Orchestrating multi-modal LLMs, dynamic prompt templates, and intelligent decision-making logic.",
     skills: [
-      { name: "Gemini 1.5 Pro / Flash", level: "Expert", isPrimary: true },
-      { name: "OpenAI GPT-4o & Assistants API", level: "Advanced", isPrimary: true },
-      { name: "Autonomous Agent Tool Calling", level: "Advanced", isPrimary: true },
-      { name: "Socratic & Dynamic Prompts", level: "Expert" },
-      { name: "Multi-Modal Parsing (Audio/PDF/Vision)", level: "Advanced" },
-      { name: "Semantic Search & Embeddings", level: "Proficient" }
+      { name: "Google Gemini 1.5 (Flash / Pro)", level: "Expert", isPrimary: true },
+      { name: "OpenAI GPT-4o & LLM APIs", level: "Advanced", isPrimary: true },
+      { name: "Advanced Prompt Architecture", level: "Expert", isPrimary: true },
+      { name: "Multi-Modal AI (Vision/Audio/Docs)", level: "Advanced", isPrimary: true },
+      { name: "AI Agent Tool Calling & Routing", level: "Advanced" },
+      { name: "Conversational Context Memory", level: "Advanced" }
     ]
   },
   {
-    id: "fullstack",
-    title: "Full-Stack Web & Mobile Engineering",
-    description: "High-conversion web platforms, responsive interfaces, and scalable frontend architectures.",
+    id: "vibe-engineering",
+    title: "AI-Assisted Web & Mobile Development (Vibe Coding)",
+    description: "Leveraging state-of-the-art AI tooling to rapidly build, ship, and deploy modern applications.",
     skills: [
-      { name: "React 19 & TypeScript", level: "Expert", isPrimary: true },
-      { name: "Next.js & App Router", level: "Advanced", isPrimary: true },
-      { name: "Tailwind CSS & Motion", level: "Expert", isPrimary: true },
-      { name: "Node.js & Express REST APIs", level: "Advanced" },
-      { name: "Streamlit / Python Apps", level: "Advanced" },
-      { name: "Mobile App Architecture", level: "Advanced" }
+      { name: "Flutter & Mobile Apps (AI-Driven)", level: "Proficient", isPrimary: true },
+      { name: "Modern Web Apps & Landing Pages", level: "Advanced", isPrimary: true },
+      { name: "React, Tailwind CSS & Motion", level: "Advanced", isPrimary: true },
+      { name: "AI-Assisted Rapid Prototyping", level: "Expert", isPrimary: true },
+      { name: "Streamlit / Python Web Utilities", level: "Advanced" },
+      { name: "Supabase & Cloud Integrations", level: "Proficient" }
     ]
   },
   {
     id: "integrations",
-    title: "Enterprise Integrations & APIs",
-    description: "Connecting CRMs, communication channels, payment systems, and CDNs securely.",
+    title: "Enterprise Integrations & Business Tools",
+    description: "Connecting CRMs, social channels, and messaging platforms into unified automated operations.",
     skills: [
       { name: "WhatsApp Business Cloud API", level: "Expert", isPrimary: true },
       { name: "GoHighLevel (GHL) CRM", level: "Advanced", isPrimary: true },
       { name: "Telegram Bot API", level: "Expert", isPrimary: true },
-      { name: "Meta Graph API (IG/FB)", level: "Advanced" },
-      { name: "YouTube Data API v3", level: "Advanced" },
-      { name: "Google Sheets & Drive APIs", level: "Expert" }
+      { name: "Google Sheets & Drive APIs", level: "Master", isPrimary: true },
+      { name: "Meta Graph API (IG / FB)", level: "Advanced" },
+      { name: "YouTube Data API v3", level: "Advanced" }
     ]
   }
 ];

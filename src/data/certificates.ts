@@ -42,15 +42,15 @@ export const certificates: Certificate[] = [
   },
   {
     id: "cert-4",
-    title: "Full-Stack Web Systems & Modern React Architecture",
-    issuer: "Meta / Coursera Professional Specialization",
+    title: "AI-Driven Mobile (Flutter) & Web Engineering",
+    issuer: "Applied AI App Development Certification",
     issueDate: "2024",
-    credentialUrl: "https://coursera.org",
+    credentialUrl: "https://github.com/hamza19-2006",
     image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80",
     category: "Full-Stack Development",
     isWinningAward: false,
-    awardRank: "Professional Credential",
-    description: "Comprehensive mastery of modern single-page applications, responsive design systems, state synchronization, RESTful API architecture, and cloud deployment pipelines.",
-    skillsLearned: ["React 19 & TypeScript", "Tailwind CSS", "API Design", "Performance Optimization"]
+    awardRank: "Specialization Credential",
+    description: "Mastery of accelerated mobile application development with Flutter/Dart and modern web platforms, pairing high-level architecture with AI-driven rapid prototyping (Vibe Coding).",
+    skillsLearned: ["Flutter & Dart", "AI-Assisted Vibe Coding", "React & Tailwind CSS", "REST API Integrations"]
   }
 ];

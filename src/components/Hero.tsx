@@ -112,7 +112,7 @@ export const Hero: React.FC = () => {
             <CheckCircle2 className="w-4 h-4 text-blue-400" /> WhatsApp Cloud API
           </span>
           <span className="flex items-center gap-1.5 text-zinc-400 font-sans font-medium">
-            <CheckCircle2 className="w-4 h-4 text-blue-400" /> React 19 & Next.js
+            <CheckCircle2 className="w-4 h-4 text-blue-400" /> Flutter & Vibe Coding
           </span>
           <span className="flex items-center gap-1.5 text-zinc-400 font-sans font-medium">
             <CheckCircle2 className="w-4 h-4 text-blue-400" /> GoHighLevel CRM
