@@ -20,7 +20,7 @@ export const Contact: React.FC = () => {
     const subject = encodeURIComponent(`Project Inquiry: ${formData.projectType} from ${formData.name}`);
     const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nProject Type: ${formData.projectType}\n\nMessage:\n${formData.message}`);
     
-    window.open(`mailto:muhammad.hamza.noor0@gmail.com?subject=${subject}&body=${body}`, "_blank");
+    window.open(`mailto:hamzanoorallah@gmail.com?subject=${subject}&body=${body}`, "_blank");
     setIsSubmitted(true);
   };
 
@@ -73,7 +73,7 @@ export const Contact: React.FC = () => {
 
               {/* Email */}
               <a
-                href="mailto:muhammad.hamza.noor0@gmail.com"
+                href="mailto:hamzanoorallah@gmail.com"
                 className="glass-card rounded-2xl p-4 flex items-center justify-between hover:border-blue-500/40 hover:bg-blue-500/5 transition-all group"
               >
                 <div className="flex items-center gap-3.5">
@@ -84,7 +84,7 @@ export const Contact: React.FC = () => {
                     <h4 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">
                       Email Inbox
                     </h4>
-                    <span className="text-xs text-zinc-400 font-mono">muhammad.hamza.noor0@gmail.com</span>
+                    <span className="text-xs text-zinc-400 font-mono">hamzanoorallah@gmail.com</span>
                   </div>
                 </div>
                 <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
