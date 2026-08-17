@@ -41,8 +41,8 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ cert, onPrevie
                 {cert.awardRank || "1st Place Winner"}
               </span>
             ) : (
-              <span className="px-3 py-1 bg-blue-600/30 border border-blue-400/40 text-blue-300 text-[10px] font-bold uppercase tracking-wider rounded-full backdrop-blur-md flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5" />
+              <span className="px-3 py-1 bg-zinc-900 border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg backdrop-blur-md flex items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
                 {cert.awardRank || "Certified"}
               </span>
             )}
