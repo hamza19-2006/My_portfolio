@@ -152,7 +152,7 @@ export const AppShowcase: React.FC = () => {
 
                 {/* Right Column: Interactive Phone Mockup & Screenshot Gallery */}
                 <div className="lg:col-span-5 flex flex-col items-center justify-center order-1 lg:order-2">
-                  <div className="relative w-full max-w-[290px] sm:max-w-[320px] aspect-[9/18.5] rounded-[40px] p-3 bg-gradient-to-b from-zinc-800 via-zinc-900 to-black border-2 border-white/20 shadow-2xl shadow-blue-500/10">
+                  <div className="relative w-[260px] sm:w-[290px] lg:w-[320px] aspect-[9/18.5] rounded-[40px] p-3 bg-gradient-to-b from-zinc-800 via-zinc-900 to-black border-2 border-white/20 shadow-2xl shadow-blue-500/10">
                     {/* Phone Notch / Speaker */}
                     <div className="absolute top-5 left-1/2 -translate-x-1/2 w-24 h-4 bg-zinc-950 rounded-full z-20 flex items-center justify-center pointer-events-none">
                       <div className="w-2.5 h-2.5 rounded-full bg-zinc-900 mr-2" />

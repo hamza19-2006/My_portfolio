@@ -159,11 +159,12 @@ export const Certificates: React.FC = () => {
               </div>
 
               {/* Certificate Image View */}
-              <div className="p-4 sm:p-6 max-h-[70vh] overflow-y-auto flex items-center justify-center bg-black/40">
+              <div className="p-4 sm:p-6 flex items-center justify-center bg-black/40 min-h-[220px]">
                 <img
                   src={selectedCert.image}
                   alt={selectedCert.title}
-                  className="max-h-[60vh] w-auto rounded-xl object-contain border border-white/10 shadow-2xl"
+                  className="w-full max-w-full max-h-[55vh] rounded-xl object-contain border border-white/10 shadow-2xl"
+                  style={{ display: "block" }}
                 />
               </div>
 
