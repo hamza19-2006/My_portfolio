@@ -47,6 +47,10 @@ export const About: React.FC = () => {
               My primary focus is <strong className="text-white font-semibold">building workflows in n8n</strong> that eliminate repetitive manual work. Whether it is syncing customer leads across CRMs, sending real-time notifications to WhatsApp, or integrating AI assistants to answer questions, I make sure the whole pipeline runs smoothly.
             </p>
 
+            <p>
+              Currently pursuing a <strong className="text-white font-semibold">BS in Computer Science</strong> at the University of Central Punjab while building production automation systems for real clients.
+            </p>
+
             <div className="pt-4 flex flex-wrap gap-4 text-xs font-semibold text-zinc-400">
               <span className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
                 <MapPin className="w-3.5 h-3.5 text-blue-400" /> Lahore, Pakistan and Remote Worldwide
