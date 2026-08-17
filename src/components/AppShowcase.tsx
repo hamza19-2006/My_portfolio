@@ -59,9 +59,9 @@ export const AppShowcase: React.FC = () => {
                       </div>
                       <div>
                         <div className="flex flex-wrap items-center gap-2 mb-1">
-                          <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[11px] font-bold tracking-wide flex items-center gap-1.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                            Live on Google Play
+                          <span className="px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-[11px] font-bold tracking-wide flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+                            Production Ready Build
                           </span>
                           <span className="text-xs text-zinc-500 font-mono">v{app.version}</span>
                         </div>
@@ -71,18 +71,24 @@ export const AppShowcase: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Rating & Stats Strip */}
-                    <div className="flex flex-wrap items-center gap-3 sm:gap-6 py-3 px-4 rounded-2xl bg-white/[0.03] border border-white/[0.08] mb-6 w-full sm:w-fit">
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-amber-400 font-bold text-sm">★ {app.rating}</span>
-                        <span className="text-zinc-500 text-xs font-normal">({app.ratingCount})</span>
+                    {/* Engineering & Technical Stats Strip */}
+                    <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 py-2.5 px-4 rounded-2xl bg-white/[0.03] border border-white/[0.08] mb-6 w-full sm:w-fit text-xs">
+                      <div className="flex items-center gap-1.5 text-zinc-300">
+                        <span className="w-2 h-2 rounded-full bg-blue-400 shrink-0" />
+                        <span className="text-white font-semibold">Flutter & Dart</span>
                       </div>
                       <div className="hidden sm:block w-1 h-3 bg-white/10 rounded-full" />
-                      <div className="text-xs text-zinc-300 font-medium">
-                        <span className="text-white font-bold">{app.downloads}</span> Downloads
+                      <div className="flex items-center gap-1.5 text-zinc-300">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
+                        <span className="text-white font-semibold">Offline-First + Cloud Sync</span>
                       </div>
                       <div className="hidden sm:block w-1 h-3 bg-white/10 rounded-full" />
-                      <div className="text-xs text-zinc-400">
+                      <div className="flex items-center gap-1.5 text-zinc-300">
+                        <span className="w-2 h-2 rounded-full bg-purple-400 shrink-0" />
+                        <span className="text-white font-semibold">Scoring Algorithm</span>
+                      </div>
+                      <div className="hidden sm:block w-1 h-3 bg-white/10 rounded-full" />
+                      <div className="text-xs text-zinc-400 font-medium">
                         {app.category}
                       </div>
                     </div>
