@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "motion/react";
 import { SectionHeader } from "./SectionHeader";
 import { Mail, Github, Linkedin, MessageSquare, Send, CheckCircle2, ArrowRight, Loader2 } from "lucide-react";
 
@@ -60,7 +61,11 @@ export const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#050507] border-t border-white/5 relative overflow-hidden">
       {/* Background ambient lighting */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
+      <motion.div
+        className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none"
+        animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
       <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -72,8 +77,14 @@ export const Contact: React.FC = () => {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Column: Direct Outreach Channels */}
-          <div className="lg:col-span-5 space-y-6">
+          {/* Left Column: Direct Outreach Channels with Staggered Spring Physics */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 90, damping: 18 }}
+            className="lg:col-span-5 space-y-6"
+          >
             <h3 className="text-2xl font-bold text-white tracking-tight">
               Get in Touch
             </h3>
@@ -88,7 +99,7 @@ export const Contact: React.FC = () => {
                 href="https://wa.me/923032172766?text=Hello%20Hamza,%20I%20would%20like%20to%20discuss%20a%20project."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-card rounded-2xl p-4 flex items-center justify-between hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all group"
+                className="glass-card shimmer-card rounded-2xl p-4 flex items-center justify-between hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all group"
               >
                 <div className="flex items-center gap-3.5">
                   <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
@@ -107,7 +118,7 @@ export const Contact: React.FC = () => {
               {/* Email */}
               <a
                 href="mailto:hn955779@gmail.com"
-                className="glass-card rounded-2xl p-4 flex items-center justify-between hover:border-blue-500/40 hover:bg-blue-500/5 transition-all group"
+                className="glass-card shimmer-card rounded-2xl p-4 flex items-center justify-between hover:border-blue-500/40 hover:bg-blue-500/5 transition-all group"
               >
                 <div className="flex items-center gap-3.5">
                   <div className="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
@@ -128,7 +139,7 @@ export const Contact: React.FC = () => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-card rounded-2xl p-4 flex items-center justify-between hover:border-indigo-500/40 hover:bg-indigo-500/5 transition-all group"
+                className="glass-card shimmer-card rounded-2xl p-4 flex items-center justify-between hover:border-indigo-500/40 hover:bg-indigo-500/5 transition-all group"
               >
                 <div className="flex items-center gap-3.5">
                   <div className="w-11 h-11 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 group-hover:scale-110 transition-transform">
@@ -149,7 +160,7 @@ export const Contact: React.FC = () => {
                 href="https://github.com/hamza19-2006"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-card rounded-2xl p-4 flex items-center justify-between hover:border-zinc-500/40 hover:bg-zinc-800/20 transition-all group"
+                className="glass-card shimmer-card rounded-2xl p-4 flex items-center justify-between hover:border-zinc-500/40 hover:bg-zinc-800/20 transition-all group"
               >
                 <div className="flex items-center gap-3.5">
                   <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-200 group-hover:scale-110 transition-transform">
@@ -165,11 +176,17 @@ export const Contact: React.FC = () => {
                 <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-zinc-200 group-hover:translate-x-1 transition-all" />
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Direct Project Inquiry Form */}
-          <div className="lg:col-span-7">
-            <div className="glass-panel rounded-3xl p-6 sm:p-10 border border-white/10 shadow-2xl">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 90, damping: 18, delay: 0.15 }}
+            className="lg:col-span-7"
+          >
+            <div className="glass-panel shimmer-card rounded-3xl p-6 sm:p-10 border border-white/10 shadow-2xl">
               <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">
                 Send a Message
               </h3>
@@ -178,7 +195,11 @@ export const Contact: React.FC = () => {
               </p>
 
               {isSubmitted ? (
-                <div className="p-8 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-3">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="p-8 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-3"
+                >
                   <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto" />
                   <h4 className="text-xl font-bold text-white">Message Sent Successfully!</h4>
                   <p className="text-xs sm:text-sm text-zinc-300">
@@ -198,7 +219,7 @@ export const Contact: React.FC = () => {
                   >
                     Send Another Message
                   </button>
-                </div>
+                </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -266,7 +287,7 @@ export const Contact: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 disabled:opacity-50 text-white font-bold text-sm tracking-wide shadow-lg shadow-blue-600/30 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0"
+                    className="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 disabled:opacity-50 text-white font-bold text-sm tracking-wide shadow-lg shadow-blue-600/30 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
                   >
                     {isSubmitting ? (
                       <>
@@ -283,7 +304,7 @@ export const Contact: React.FC = () => {
                 </form>
               )}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

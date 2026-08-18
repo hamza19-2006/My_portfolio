@@ -13,13 +13,13 @@ export const AutomationCard: React.FC<AutomationCardProps> = ({ project, onClick
     <motion.div
       layoutId={`automation-card-${project.id}`}
       whileHover={{ y: -6, scale: 1.01 }}
-      transition={{ duration: 0.3 }}
+      transition={{ type: "spring", stiffness: 150, damping: 15 }}
       onClick={onClick}
       onKeyDown={(e: React.KeyboardEvent) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick(); } }}
       role="button"
       tabIndex={0}
       aria-label={`View details for ${project.title}`}
-      className="group cursor-pointer glass-card rounded-2xl overflow-hidden flex flex-col justify-between hover:border-indigo-500/40 hover:shadow-2xl hover:shadow-indigo-500/10 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-[#050507]"
+      className="group cursor-pointer glass-card shimmer-card rounded-2xl overflow-hidden flex flex-col justify-between hover:border-indigo-500/40 hover:shadow-2xl hover:shadow-indigo-500/10 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-[#050507]"
     >
       <div>
         {/* Preview image */}
@@ -60,7 +60,7 @@ export const AutomationCard: React.FC<AutomationCardProps> = ({ project, onClick
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.03] border border-white/[0.06] text-zinc-400"
+                className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.03] border border-white/[0.06] text-zinc-400 hover:text-zinc-200 hover:border-white/20 transition-colors"
               >
                 {tag}
               </span>

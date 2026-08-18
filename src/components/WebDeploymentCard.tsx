@@ -10,12 +10,16 @@ interface WebDeploymentCardProps {
 export const WebDeploymentCard: React.FC<WebDeploymentCardProps> = ({ project }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.98 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       whileHover={{ y: -6 }}
-      transition={{ duration: 0.4 }}
-      className="group glass-card rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-blue-500/40 hover:shadow-2xl hover:shadow-blue-500/10"
+      transition={{
+        type: "spring",
+        stiffness: 120,
+        damping: 18,
+      }}
+      className="group glass-card shimmer-card rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-blue-500/40 hover:shadow-2xl hover:shadow-blue-500/10"
     >
       <div>
         {/* Preview Image Header */}
@@ -61,7 +65,7 @@ export const WebDeploymentCard: React.FC<WebDeploymentCardProps> = ({ project })
             {project.techStack.map((tech) => (
               <span
                 key={tech}
-                className="px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-zinc-300"
+                className="px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-zinc-300 hover:border-blue-400/30 hover:bg-white/[0.08] transition-colors"
               >
                 {tech}
               </span>
@@ -71,7 +75,7 @@ export const WebDeploymentCard: React.FC<WebDeploymentCardProps> = ({ project })
       </div>
 
       {/* Footer Link */}
-      <div className="px-6 sm:px-8 pb-6 sm:pb-8 pt-2 border-t border-white/5 flex items-center justify-between">
+      <div className="px-6 sm:p-8 pb-6 sm:pb-8 pt-2 border-t border-white/5 flex items-center justify-between">
         <a
           href={project.link}
           target="_blank"

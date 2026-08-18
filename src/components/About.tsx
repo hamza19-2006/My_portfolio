@@ -20,10 +20,15 @@ export const About: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Narrative */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{
+              type: "spring",
+              stiffness: 90,
+              damping: 20,
+              mass: 0.8,
+            }}
             className="lg:col-span-7 space-y-6 text-zinc-300 text-base sm:text-lg leading-relaxed font-normal"
           >
             <div className="flex flex-col sm:flex-row gap-6 items-start">
@@ -52,24 +57,24 @@ export const About: React.FC = () => {
             </p>
 
             <div className="pt-4 flex flex-wrap gap-4 text-xs font-semibold text-zinc-400">
-              <span className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
+              <span className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 transition-colors">
                 <MapPin className="w-3.5 h-3.5 text-blue-400" /> Lahore, Pakistan and Remote Worldwide
               </span>
-              <span className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
+              <span className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 transition-colors">
                 <Sparkles className="w-3.5 h-3.5 text-amber-400" /> n8n Automation & Full-Stack Development
               </span>
             </div>
           </motion.div>
 
-          {/* Right Column: 3 Pillars Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 space-y-4"
-          >
-            <div className="glass-card rounded-2xl p-6 border border-white/10 hover:border-blue-500/30 transition-all">
+          {/* Right Column: 3 Pillars Card with Staggered Spring Physics */}
+          <div className="lg:col-span-5 space-y-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", stiffness: 90, damping: 18, delay: 0.1 }}
+              className="glass-card shimmer-card rounded-2xl p-6 border border-white/10 hover:border-blue-500/40 transition-all cursor-default"
+            >
               <div className="flex items-center gap-3 mb-2">
                 <div className="p-2 rounded-lg bg-blue-500/10 text-blue-400">
                   <Zap className="w-5 h-5" />
@@ -79,9 +84,15 @@ export const About: React.FC = () => {
               <p className="text-xs text-zinc-400 leading-relaxed">
                 Replacing manual tasks with instant lead capture, spreadsheet syncing, and WhatsApp notifications.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="glass-card rounded-2xl p-6 border border-white/10 hover:border-indigo-500/30 transition-all">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", stiffness: 90, damping: 18, delay: 0.2 }}
+              className="glass-card shimmer-card rounded-2xl p-6 border border-white/10 hover:border-indigo-500/40 transition-all cursor-default"
+            >
               <div className="flex items-center gap-3 mb-2">
                 <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-400">
                   <Cpu className="w-5 h-5" />
@@ -91,9 +102,15 @@ export const About: React.FC = () => {
               <p className="text-xs text-zinc-400 leading-relaxed">
                 Using vision and language models to understand customer questions, summarize notes, and handle support requests.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="glass-card rounded-2xl p-6 border border-white/10 hover:border-purple-500/30 transition-all">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", stiffness: 90, damping: 18, delay: 0.3 }}
+              className="glass-card shimmer-card rounded-2xl p-6 border border-white/10 hover:border-purple-500/40 transition-all cursor-default"
+            >
               <div className="flex items-center gap-3 mb-2">
                 <div className="p-2 rounded-lg bg-purple-500/10 text-purple-400">
                   <Shield className="w-5 h-5" />
@@ -103,8 +120,8 @@ export const About: React.FC = () => {
               <p className="text-xs text-zinc-400 leading-relaxed">
                 Setting up error logs, secure webhooks, and automatic retry steps so systems do not fail unexpectedly.
               </p>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

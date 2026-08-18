@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 import { SectionHeader } from "./SectionHeader";
 import { FileText, Download, Eye, ExternalLink, CheckCircle2 } from "lucide-react";
+import { MagneticButton } from "./MagneticButton";
 
 const RESUME_PATH = "/resume/Hamza_Cv.pdf";
 
@@ -20,8 +21,12 @@ export const Resume: React.FC = () => {
       id="resume"
       className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#07070a] border-t border-white/5 relative overflow-hidden"
     >
-      {/* Ambient glow */}
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-blue-600/8 rounded-full blur-[140px] pointer-events-none" />
+      {/* Ambient glow with gentle breathing animation */}
+      <motion.div
+        className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none"
+        animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+      />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionHeader
@@ -34,13 +39,17 @@ export const Resume: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Left Column — Download Card */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{
+              type: "spring",
+              stiffness: 90,
+              damping: 18,
+            }}
             className="lg:col-span-5"
           >
-            <div className="glass-panel rounded-3xl p-8 sm:p-10 border border-white/10 space-y-8">
+            <div className="glass-panel shimmer-card rounded-3xl p-8 sm:p-10 border border-white/10 space-y-8">
               {/* Profile snapshot */}
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-2xl overflow-hidden border border-white/15 shadow-lg shrink-0">
@@ -73,24 +82,28 @@ export const Resume: React.FC = () => {
                 ))}
               </div>
 
-              {/* Action buttons */}
+              {/* Action buttons with Magnetic Pull Physics */}
               <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href={RESUME_PATH}
-                  download="Muhammad_Hamza_CV.pdf"
-                  className="flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-sm tracking-wide shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
-                >
-                  <Download className="w-4 h-4" />
-                  <span>Download CV</span>
-                </a>
+                <MagneticButton strength={0.3} className="flex-1">
+                  <a
+                    href={RESUME_PATH}
+                    download="Muhammad_Hamza_CV.pdf"
+                    className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-sm tracking-wide shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 transition-all transform active:scale-95"
+                  >
+                    <Download className="w-4 h-4" />
+                    <span>Download CV</span>
+                  </a>
+                </MagneticButton>
 
-                <button
-                  onClick={() => setShowPreview(!showPreview)}
-                  className="flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-white font-bold text-sm tracking-wide border border-white/10 hover:border-white/20 transition-all"
-                >
-                  <Eye className="w-4 h-4 text-blue-400" />
-                  <span>{showPreview ? "Hide Preview" : "Preview CV"}</span>
-                </button>
+                <MagneticButton strength={0.3} className="flex-1">
+                  <button
+                    onClick={() => setShowPreview(!showPreview)}
+                    className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-white font-bold text-sm tracking-wide border border-white/10 hover:border-white/20 transition-all transform active:scale-95"
+                  >
+                    <Eye className="w-4 h-4 text-blue-400" />
+                    <span>{showPreview ? "Hide Preview" : "Preview CV"}</span>
+                  </button>
+                </MagneticButton>
               </div>
 
               {/* Open in new tab link */}
@@ -98,7 +111,7 @@ export const Resume: React.FC = () => {
                 href={RESUME_PATH}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-blue-400 transition-colors font-medium"
+                className="inline-flex items-center gap-2 text-xs text-zinc-400 hover:text-blue-400 transition-colors font-medium"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
                 <span>Open in new tab</span>
@@ -106,12 +119,17 @@ export const Resume: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Right Column — PDF Preview */}
+          {/* Right Column — PDF Preview with Spring Animation */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{
+              type: "spring",
+              stiffness: 90,
+              damping: 18,
+              delay: 0.15,
+            }}
             className="lg:col-span-7"
           >
             {showPreview ? (
@@ -140,7 +158,7 @@ export const Resume: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <div className="glass-card rounded-3xl p-12 sm:p-16 border border-white/10 flex flex-col items-center justify-center text-center min-h-[400px]">
+              <div className="glass-card shimmer-card rounded-3xl p-12 sm:p-16 border border-white/10 flex flex-col items-center justify-center text-center min-h-[400px]">
                 <div className="p-4 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-blue-400 mb-6">
                   <FileText className="w-10 h-10" />
                 </div>
@@ -151,13 +169,15 @@ export const Resume: React.FC = () => {
                   Click "Preview CV" to view the full resume right here, or
                   download it directly.
                 </p>
-                <button
-                  onClick={() => setShowPreview(true)}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm font-semibold transition-all"
-                >
-                  <Eye className="w-4 h-4 text-blue-400" />
-                  <span>Preview CV</span>
-                </button>
+                <MagneticButton strength={0.3}>
+                  <button
+                    onClick={() => setShowPreview(true)}
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm font-semibold transition-all transform active:scale-95"
+                  >
+                    <Eye className="w-4 h-4 text-blue-400" />
+                    <span>Preview CV</span>
+                  </button>
+                </MagneticButton>
               </div>
             )}
           </motion.div>

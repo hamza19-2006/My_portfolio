@@ -1,4 +1,5 @@
 import React, { Suspense } from "react";
+import { motion, useScroll, useSpring } from "motion/react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { MetricsBanner } from "./components/MetricsBanner";
@@ -31,13 +32,29 @@ function SectionFallback() {
 }
 
 export default function App() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
   return (
-    <div className="bg-[#050507] min-h-screen text-zinc-100 font-sans selection:bg-blue-600/30 selection:text-blue-200">
+    <div className="bg-[#050507] min-h-screen text-zinc-100 font-sans selection:bg-blue-600/30 selection:text-blue-200 relative">
+      {/* 1. Cinematic Film Grain Texture Layer (Non-intrusive 2% opacity) */}
+      <div className="film-grain" aria-hidden="true" />
+
+      {/* 2. Velvet Scroll Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 z-50 origin-left shadow-lg shadow-blue-500/30"
+        style={{ scaleX }}
+      />
+
       {/* Sticky Glassmorphic Header */}
       <Navbar />
 
       {/* Main Content Sections */}
-      <main>
+      <main className="relative z-10">
         <Hero />
         <MetricsBanner />
         <About />

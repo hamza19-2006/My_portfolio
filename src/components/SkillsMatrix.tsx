@@ -27,7 +27,7 @@ const levelToColor: Record<string, string> = {
 
 export const SkillsMatrix: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const isInView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
     <section id="skills" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#050507] border-t border-white/5 relative">
@@ -43,15 +43,20 @@ export const SkillsMatrix: React.FC = () => {
           {skillCategories.map((category, idx) => (
             <motion.div
               key={category.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between"
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 18,
+                delay: idx * 0.12,
+              }}
+              className="glass-card shimmer-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:border-blue-500/30 transition-all duration-300"
             >
               <div>
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
+                  <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 shadow-sm">
                     {categoryIcons[category.id] || <Code2 className="w-5 h-5 text-blue-400" />}
                   </div>
                   <div>
@@ -65,21 +70,21 @@ export const SkillsMatrix: React.FC = () => {
                   {category.description}
                 </p>
 
-                <div className="space-y-3">
+                <div className="space-y-3.5">
                   {category.skills.map((skill, skillIdx) => {
                     const width = levelToWidth[skill.level.toUpperCase()] || "50%";
                     const gradient = levelToColor[skill.level.toUpperCase()] || "from-zinc-500 to-zinc-400";
 
                     return (
                       <div key={skill.name}>
-                        <div className="flex items-center justify-between mb-1">
+                        <div className="flex items-center justify-between mb-1.5">
                           <div className="flex items-center gap-2">
                             <CheckCircle2 className={`w-3.5 h-3.5 ${skill.isPrimary ? "text-blue-400" : "text-zinc-500"}`} />
-                            <span className={`text-xs font-medium ${skill.isPrimary ? "text-white" : "text-zinc-400"}`}>
+                            <span className={`text-xs font-medium ${skill.isPrimary ? "text-white font-semibold" : "text-zinc-300"}`}>
                               {skill.name}
                             </span>
                           </div>
-                          <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-white/5 text-zinc-500">
+                          <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-white/5 text-zinc-400 border border-white/5">
                             {skill.level}
                           </span>
                         </div>
@@ -89,9 +94,9 @@ export const SkillsMatrix: React.FC = () => {
                             initial={{ width: "0%" }}
                             animate={isInView ? { width } : { width: "0%" }}
                             transition={{
-                              duration: 1,
-                              delay: idx * 0.15 + skillIdx * 0.08,
-                              ease: [0.25, 0.46, 0.45, 0.94]
+                              duration: 1.2,
+                              delay: idx * 0.12 + skillIdx * 0.06,
+                              ease: [0.16, 1, 0.3, 1],
                             }}
                           />
                         </div>
