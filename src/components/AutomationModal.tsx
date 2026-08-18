@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { X, ShieldCheck, TrendingUp, Cpu, Workflow, Maximize2, ZoomIn, Eye } from "lucide-react";
 import { AutomationArchitecture } from "../types/portfolio";
@@ -11,9 +12,11 @@ interface AutomationModalProps {
 export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClose }) => {
   const [activeTab, setActiveTab] = useState<"flow" | "mechanics" | "impact">("flow");
   const [isFullscreenImage, setIsFullscreenImage] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const closeButtonRef = React.useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
+    setMounted(true);
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         if (isFullscreenImage) {
@@ -31,26 +34,28 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
     closeButtonRef.current?.focus();
   }, []);
 
-  return (
-    <>
-      {/* Dim backdrop */}
+  if (!mounted) return null;
+
+  return createPortal(
+    <div className="fixed inset-0 z-[99999] overflow-y-auto">
+      {/* Dim backdrop covering entire screen, including navbar */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={onClose}
-        className="fixed inset-0 bg-black/85 backdrop-blur-md z-[100]"
+        className="fixed inset-0 bg-black/90 backdrop-blur-xl z-[99999]"
       />
 
-      {/* Centered Modal Container */}
-      <div className="fixed inset-0 flex items-center justify-center p-3 sm:p-6 z-[101] pointer-events-none">
+      {/* Centered Scrollable Modal Wrapper */}
+      <div className="min-h-full flex items-center justify-center p-3 sm:p-6 relative z-[100000]">
         <motion.div
           layoutId={`automation-card-${project.id}`}
-          className="bg-[#0c0c12] border border-white/15 rounded-3xl w-full max-w-4xl max-h-[92vh] overflow-hidden flex flex-col pointer-events-auto shadow-2xl shadow-indigo-500/10"
+          className="bg-[#0c0c12] border border-white/20 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col shadow-[0_0_50px_rgba(0,0,0,0.8)] my-auto"
         >
           {/* Header Image Area with Full Diagram Preview Option */}
           <div className="relative bg-zinc-950 border-b border-white/10 shrink-0 group">
-            <div className="relative h-48 sm:h-64 w-full overflow-hidden flex items-center justify-center bg-black/60">
+            <div className="relative h-48 sm:h-64 w-full overflow-hidden flex items-center justify-center bg-black/80">
               <img
                 src={project.image}
                 alt={project.title}
@@ -61,27 +66,28 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
               <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c12] via-transparent to-transparent pointer-events-none" />
             </div>
 
-            {/* Top Close Button */}
+            {/* Top Close Button — High Visibility */}
             <button
               ref={closeButtonRef}
               onClick={onClose}
-              className="absolute top-4 right-4 p-2.5 bg-black/70 hover:bg-black/95 text-white rounded-full backdrop-blur-md border border-white/10 transition-colors z-20"
+              className="absolute top-4 right-4 p-3 bg-black/80 hover:bg-red-600 text-white rounded-full backdrop-blur-md border border-white/20 hover:border-red-500 transition-all shadow-2xl z-30 hover:scale-110 cursor-pointer"
               aria-label="Close modal"
+              title="Close modal (Esc)"
             >
               <X className="w-5 h-5" />
             </button>
 
             {/* Bottom Overlay Info & Fullscreen Button */}
-            <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between z-10 pointer-events-auto">
-              <span className="px-3 py-1 rounded-full bg-blue-600/40 border border-blue-400/40 text-blue-300 text-xs font-bold uppercase tracking-wider backdrop-blur-md">
+            <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between z-10">
+              <span className="px-3 py-1 rounded-full bg-blue-600/60 border border-blue-400/50 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-md shadow-lg">
                 {project.category}
               </span>
 
               <button
                 onClick={() => setIsFullscreenImage(true)}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/80 hover:bg-blue-600 text-white text-xs font-semibold backdrop-blur-md border border-white/15 transition-all shadow-lg hover:scale-105"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-600/90 hover:bg-blue-500 text-white text-xs font-bold backdrop-blur-md border border-blue-400/30 transition-all shadow-xl hover:scale-105 cursor-pointer"
               >
-                <Maximize2 className="w-3.5 h-3.5 text-blue-400" />
+                <Maximize2 className="w-4 h-4" />
                 <span>View Full Diagram</span>
               </button>
             </div>
@@ -109,7 +115,7 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setActiveTab("flow")}
-                className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer ${
                   activeTab === "flow"
                     ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
                     : "bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/5"
@@ -121,7 +127,7 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
 
               <button
                 onClick={() => setActiveTab("mechanics")}
-                className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer ${
                   activeTab === "mechanics"
                     ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
                     : "bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/5"
@@ -133,7 +139,7 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
 
               <button
                 onClick={() => setActiveTab("impact")}
-                className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer ${
                   activeTab === "impact"
                     ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
                     : "bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/5"
@@ -158,7 +164,7 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
                     </span>
                     <button
                       onClick={() => setIsFullscreenImage(true)}
-                      className="text-xs text-blue-400 hover:text-blue-300 font-semibold flex items-center gap-1 transition-colors"
+                      className="text-xs text-blue-400 hover:text-blue-300 font-semibold flex items-center gap-1 transition-colors cursor-pointer"
                     >
                       <ZoomIn className="w-3.5 h-3.5" />
                       <span>Click to Zoom</span>
@@ -167,12 +173,12 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
 
                   <div
                     onClick={() => setIsFullscreenImage(true)}
-                    className="relative w-full rounded-xl overflow-hidden bg-black/60 cursor-pointer border border-white/5 hover:border-blue-500/30 transition-all flex items-center justify-center max-h-[340px]"
+                    className="relative w-full rounded-xl overflow-hidden bg-black/60 cursor-pointer border border-white/5 hover:border-blue-500/40 transition-all flex items-center justify-center max-h-[360px]"
                   >
                     <img
                       src={project.image}
                       alt={`${project.title} full architecture`}
-                      className="w-full h-auto max-h-[340px] object-contain rounded-xl"
+                      className="w-full h-auto max-h-[360px] object-contain rounded-xl"
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -245,13 +251,13 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
           </div>
 
           {/* Modal Footer */}
-          <div className="px-6 sm:px-10 py-4 bg-zinc-950/80 border-t border-white/10 flex items-center justify-between shrink-0">
-            <span className="text-xs text-zinc-500 font-medium">
+          <div className="px-6 sm:px-10 py-4 bg-zinc-950/90 border-t border-white/10 flex items-center justify-between shrink-0">
+            <span className="text-xs text-zinc-400 font-medium">
               Built by Muhammad Hamza
             </span>
             <button
               onClick={onClose}
-              className="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-lg shadow-blue-600/20 cursor-pointer"
+              className="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-lg shadow-blue-600/30 hover:scale-105 cursor-pointer"
             >
               Close
             </button>
@@ -259,54 +265,54 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
         </motion.div>
       </div>
 
-      {/* 🔍 Fullscreen High-Resolution Image Lightbox Modal */}
+      {/* 🔍 Fullscreen High-Resolution Image Lightbox (Direct Portal on Top of Everything) */}
       <AnimatePresence>
         {isFullscreenImage && (
-          <div className="fixed inset-0 z-[200] flex items-center justify-center p-2 sm:p-6">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsFullscreenImage(false)}
-              className="absolute inset-0 bg-black/95 backdrop-blur-xl cursor-pointer"
-            />
-
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              className="relative z-10 max-w-6xl w-full max-h-[95vh] bg-zinc-950 rounded-2xl sm:rounded-3xl border border-white/20 overflow-hidden flex flex-col shadow-2xl"
-            >
-              {/* Lightbox Header */}
-              <div className="p-4 px-6 bg-zinc-900/90 border-b border-white/10 flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <Workflow className="w-4 h-4 text-blue-400" />
-                  <span className="text-sm font-bold text-white truncate max-w-[280px] sm:max-w-md">
-                    {project.title} — Full Workflow Diagram
-                  </span>
+          <div className="fixed inset-0 z-[200000] flex flex-col bg-black/95 backdrop-blur-2xl">
+            {/* Top Bar with Clear High-Contrast Close Button */}
+            <div className="p-4 sm:p-5 px-6 bg-zinc-950/95 border-b border-white/15 flex items-center justify-between shrink-0 z-50">
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                  <Workflow className="w-5 h-5" />
                 </div>
-                <button
-                  onClick={() => setIsFullscreenImage(false)}
-                  className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors"
-                  aria-label="Close fullscreen diagram"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+                <div>
+                  <h4 className="text-base sm:text-lg font-bold text-white leading-tight">
+                    {project.title}
+                  </h4>
+                  <p className="text-xs text-zinc-400 font-mono">
+                    Full n8n Architecture Diagram (Scroll / Pinch to zoom)
+                  </p>
+                </div>
               </div>
 
-              {/* Full Diagram View Container (Pan & Scrollable) */}
-              <div className="p-3 sm:p-6 overflow-auto max-h-[85vh] flex items-center justify-center bg-black/80">
-                <img
-                  src={project.image}
-                  alt={`${project.title} complete workflow architecture diagram`}
-                  className="max-w-none w-auto max-h-[80vh] sm:max-h-[82vh] object-contain rounded-lg border border-white/10 shadow-2xl select-none"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-            </motion.div>
+              {/* Big, Obvious Close Button */}
+              <button
+                onClick={() => setIsFullscreenImage(false)}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-red-600/90 hover:bg-red-600 text-white font-bold text-sm shadow-xl hover:scale-105 transition-all cursor-pointer border border-red-500"
+                aria-label="Close diagram"
+              >
+                <X className="w-5 h-5" />
+                <span>Close Diagram</span>
+              </button>
+            </div>
+
+            {/* Scrollable / Zoomable Diagram Body */}
+            <div
+              className="flex-1 overflow-auto p-4 sm:p-8 flex items-center justify-center cursor-zoom-out"
+              onClick={() => setIsFullscreenImage(false)}
+            >
+              <img
+                src={project.image}
+                alt={`${project.title} complete workflow architecture diagram`}
+                className="max-w-none w-auto max-h-[84vh] object-contain rounded-xl border border-white/10 shadow-2xl select-none cursor-default"
+                referrerPolicy="no-referrer"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
           </div>
         )}
       </AnimatePresence>
-    </>
+    </div>,
+    document.body
   );
 };
