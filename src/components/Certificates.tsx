@@ -126,13 +126,13 @@ export const Certificates: React.FC = () => {
           <AnimatePresence>
             {selectedCert && (
               <div className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-                {/* Backdrop */}
+                {/* Translucent Frosted Glass Backdrop — Shows the portfolio website behind the modal */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   onClick={() => setSelectedCert(null)}
-                  className="fixed inset-0 bg-black/90 backdrop-blur-xl"
+                  className="fixed inset-0 bg-black/60 backdrop-blur-md"
                 />
 
                 {/* Modal Box */}

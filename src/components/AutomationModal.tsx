@@ -38,13 +38,13 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
 
   return createPortal(
     <div className="fixed inset-0 z-[99999] overflow-y-auto">
-      {/* Dim backdrop covering entire screen, including navbar */}
+      {/* Translucent Frosted Glass Backdrop — Shows the portfolio website behind the modal */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={onClose}
-        className="fixed inset-0 bg-black/90 backdrop-blur-xl z-[99999]"
+        className="fixed inset-0 bg-black/60 backdrop-blur-md z-[99999]"
       />
 
       {/* Centered Scrollable Modal Wrapper */}
