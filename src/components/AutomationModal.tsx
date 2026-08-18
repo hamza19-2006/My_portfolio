@@ -48,15 +48,28 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
       />
 
       {/* Centered Scrollable Modal Wrapper */}
-      <div className="min-h-full flex items-center justify-center p-3 sm:p-6 relative z-[100000]">
+      <div className="min-h-full flex items-center justify-center p-2 sm:p-6 relative z-[100000] py-6 sm:py-10">
         <motion.div
           layoutId={`automation-card-${project.id}`}
-          className="bg-[#0c0c12] border border-white/20 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col shadow-[0_0_50px_rgba(0,0,0,0.8)] my-auto"
+          className="bg-[#0c0c12] border border-white/20 rounded-2xl sm:rounded-3xl w-full max-w-4xl max-h-[88vh] sm:max-h-[90vh] overflow-y-auto flex flex-col shadow-[0_0_60px_rgba(0,0,0,0.9)] relative"
         >
-          {/* Header Image Area with Ambient Blurred Backdrop (No empty black borders!) */}
-          <div className="relative bg-[#07070a] border-b border-white/10 shrink-0 group">
-            <div className="relative h-48 sm:h-64 w-full overflow-hidden flex items-center justify-center">
-              {/* Ambient Blurred Background to blend left & right sides with the image's real colors */}
+          {/* Top Sticky Close Bar on Mobile / Desktop */}
+          <div className="sticky top-0 right-0 z-40 flex justify-end p-3 pointer-events-none">
+            <button
+              ref={closeButtonRef}
+              onClick={onClose}
+              className="pointer-events-auto p-2.5 sm:p-3 bg-black/80 hover:bg-red-600 text-white rounded-full backdrop-blur-md border border-white/20 hover:border-red-500 transition-all shadow-2xl hover:scale-110 cursor-pointer"
+              aria-label="Close modal"
+              title="Close modal (Esc)"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Header Image Area with Ambient Backdrop (Flows naturally with scroll!) */}
+          <div className="relative bg-[#07070a] border-b border-white/10 group -mt-14">
+            <div className="relative h-44 sm:h-64 w-full overflow-hidden flex items-center justify-center">
+              {/* Ambient Blurred Background to blend left & right sides with real image colors */}
               <img
                 src={project.image}
                 alt=""
@@ -69,23 +82,12 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
               <img
                 src={project.image}
                 alt={project.title}
-                className="relative z-10 w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02] cursor-pointer p-2"
+                className="relative z-10 w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02] cursor-pointer p-2 pt-6"
                 referrerPolicy="no-referrer"
                 onClick={() => setIsFullscreenImage(true)}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c12] via-transparent to-transparent pointer-events-none z-10" />
             </div>
-
-            {/* Top Close Button — High Visibility */}
-            <button
-              ref={closeButtonRef}
-              onClick={onClose}
-              className="absolute top-4 right-4 p-3 bg-black/80 hover:bg-red-600 text-white rounded-full backdrop-blur-md border border-white/20 hover:border-red-500 transition-all shadow-2xl z-30 hover:scale-110 cursor-pointer"
-              aria-label="Close modal"
-              title="Close modal (Esc)"
-            >
-              <X className="w-5 h-5" />
-            </button>
 
             {/* Bottom Overlay Info & Fullscreen Button */}
             <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between z-20">
@@ -95,7 +97,7 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
 
               <button
                 onClick={() => setIsFullscreenImage(true)}
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-600/90 hover:bg-blue-500 text-white text-xs font-bold backdrop-blur-md border border-blue-400/30 transition-all shadow-xl hover:scale-105 cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:py-2 rounded-xl bg-blue-600/90 hover:bg-blue-500 text-white text-xs font-bold backdrop-blur-md border border-blue-400/30 transition-all shadow-xl hover:scale-105 cursor-pointer"
               >
                 <Maximize2 className="w-4 h-4" />
                 <span>View Full Diagram</span>
@@ -103,14 +105,14 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
             </div>
           </div>
 
-          {/* Modal Header & Title */}
-          <div className="px-6 sm:px-10 pt-5 pb-4 border-b border-white/10 shrink-0 bg-[#0c0c12]">
+          {/* Sticky Tab Navigation Bar */}
+          <div className="sticky top-0 z-30 px-5 sm:px-10 pt-4 pb-3 border-b border-white/10 bg-[#0c0c12]/95 backdrop-blur-xl">
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-2 leading-tight">
               {project.title}
             </h3>
 
             {/* Tech chips */}
-            <div className="flex flex-wrap gap-1.5 mb-4">
+            <div className="flex flex-wrap gap-1.5 mb-3">
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
@@ -125,7 +127,7 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setActiveTab("flow")}
-                className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer ${
+                className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer ${
                   activeTab === "flow"
                     ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
                     : "bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/5"
@@ -137,7 +139,7 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
 
               <button
                 onClick={() => setActiveTab("mechanics")}
-                className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer ${
+                className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer ${
                   activeTab === "mechanics"
                     ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
                     : "bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/5"
@@ -149,20 +151,20 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
 
               <button
                 onClick={() => setActiveTab("impact")}
-                className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer ${
+                className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer ${
                   activeTab === "impact"
                     ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
                     : "bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/5"
                 }`}
               >
                 <TrendingUp className="w-3.5 h-3.5" />
-                <span>Results and Security</span>
+                <span>Results & Security</span>
               </button>
             </div>
           </div>
 
-          {/* Scrollable Content Body */}
-          <div className="p-6 sm:p-10 overflow-y-auto space-y-6 flex-1">
+          {/* Full Unconstrained Content Body */}
+          <div className="p-5 sm:p-10 space-y-6">
             {activeTab === "flow" && (
               <div className="space-y-6">
                 {/* Embedded Full Workflow Image Preview Box */}
@@ -234,8 +236,8 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
                 <h4 className="text-xs uppercase tracking-widest text-indigo-400 flex items-center gap-2 font-bold">
                   <Cpu className="w-4 h-4" /> Detailed Workflow Breakdown
                 </h4>
-                <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
-                  <p className="text-zinc-300 text-base leading-relaxed whitespace-pre-line font-normal">
+                <div className="p-5 sm:p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
+                  <p className="text-zinc-300 text-sm sm:text-base leading-relaxed whitespace-pre-line font-normal">
                     {project.fullDetails}
                   </p>
                 </div>
@@ -244,21 +246,21 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
 
             {activeTab === "impact" && (
               <div className="space-y-6">
-                <div className="p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/20">
+                <div className="p-5 sm:p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/20">
                   <h4 className="text-xs uppercase tracking-widest text-emerald-400 flex items-center gap-2 mb-2 font-bold">
                     <TrendingUp className="w-4 h-4" /> Business Results
                   </h4>
-                  <p className="text-zinc-200 text-base leading-relaxed">
+                  <p className="text-zinc-200 text-sm sm:text-base leading-relaxed">
                     {project.businessImpact}
                   </p>
                 </div>
 
                 {project.securityFeatures && (
-                  <div className="p-6 rounded-2xl bg-blue-500/5 border border-blue-500/20">
+                  <div className="p-5 sm:p-6 rounded-2xl bg-blue-500/5 border border-blue-500/20">
                     <h4 className="text-xs uppercase tracking-widest text-blue-400 flex items-center gap-2 mb-2 font-bold">
                       <ShieldCheck className="w-4 h-4" /> Security and Safeguards
                     </h4>
-                    <p className="text-zinc-300 text-sm leading-relaxed">
+                    <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed">
                       {project.securityFeatures}
                     </p>
                   </div>
@@ -267,8 +269,8 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
             )}
           </div>
 
-          {/* Modal Footer */}
-          <div className="px-6 sm:px-10 py-4 bg-zinc-950/90 border-t border-white/10 flex items-center justify-between shrink-0">
+          {/* Modal Footer (End of scroll) */}
+          <div className="px-6 sm:px-10 py-4 bg-zinc-950/90 border-t border-white/10 flex items-center justify-between mt-auto">
             <span className="text-xs text-zinc-400 font-medium">
               Built by Muhammad Hamza
             </span>
