@@ -6,8 +6,8 @@ export const playStoreApps: PlayStoreApp[] = [
     title: "Brutl Fitness",
     tagline: "Redefining fitness tracking through real-time consistency scoring, intelligent macro analytics, and gamified community competition.",
     description: "Brutl Fitness is a high-performance Flutter mobile application engineered to turn daily workout and nutrition tracking into a dynamic, habit-building experience. Powered by custom algorithms and real-time cloud infrastructure, it empowers users to track health metrics while competing on global leaderboards.",
-    packageName: "com.brutl.fitness",
-    playStoreUrl: "https://play.google.com/store/apps/details?id=com.brutl.fitness",
+    packageName: "com.brutlapp.fitness",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.brutlapp.fitness",
     icon: "/apps/logo.png",
     bannerImage: "/apps/ss1.jpeg",
     screenshots: [
