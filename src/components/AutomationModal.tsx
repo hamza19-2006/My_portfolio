@@ -53,17 +53,27 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
           layoutId={`automation-card-${project.id}`}
           className="bg-[#0c0c12] border border-white/20 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col shadow-[0_0_50px_rgba(0,0,0,0.8)] my-auto"
         >
-          {/* Header Image Area with Full Diagram Preview Option */}
-          <div className="relative bg-zinc-950 border-b border-white/10 shrink-0 group">
-            <div className="relative h-48 sm:h-64 w-full overflow-hidden flex items-center justify-center bg-black/80">
+          {/* Header Image Area with Ambient Blurred Backdrop (No empty black borders!) */}
+          <div className="relative bg-[#07070a] border-b border-white/10 shrink-0 group">
+            <div className="relative h-48 sm:h-64 w-full overflow-hidden flex items-center justify-center">
+              {/* Ambient Blurred Background to blend left & right sides with the image's real colors */}
+              <img
+                src={project.image}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-110 select-none pointer-events-none"
+              />
+              <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+
+              {/* Sharp Main Diagram */}
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover sm:object-contain transition-transform duration-500 group-hover:scale-[1.02] cursor-pointer"
+                className="relative z-10 w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02] cursor-pointer p-2"
                 referrerPolicy="no-referrer"
                 onClick={() => setIsFullscreenImage(true)}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c12] via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c12] via-transparent to-transparent pointer-events-none z-10" />
             </div>
 
             {/* Top Close Button — High Visibility */}
@@ -78,7 +88,7 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
             </button>
 
             {/* Bottom Overlay Info & Fullscreen Button */}
-            <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between z-10">
+            <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between z-20">
               <span className="px-3 py-1 rounded-full bg-blue-600/60 border border-blue-400/50 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-md shadow-lg">
                 {project.category}
               </span>
@@ -173,15 +183,22 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
 
                   <div
                     onClick={() => setIsFullscreenImage(true)}
-                    className="relative w-full rounded-xl overflow-hidden bg-black/60 cursor-pointer border border-white/5 hover:border-blue-500/40 transition-all flex items-center justify-center max-h-[360px]"
+                    className="relative w-full rounded-xl overflow-hidden bg-[#07070a] cursor-pointer border border-white/10 hover:border-blue-500/40 transition-all flex items-center justify-center max-h-[360px] p-2"
                   >
+                    {/* Ambient Blur Fill */}
+                    <img
+                      src={project.image}
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-30 scale-110 select-none pointer-events-none"
+                    />
                     <img
                       src={project.image}
                       alt={`${project.title} full architecture`}
-                      className="w-full h-auto max-h-[360px] object-contain rounded-xl"
+                      className="relative z-10 w-full h-auto max-h-[340px] object-contain rounded-lg"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-20">
                       <span className="px-4 py-2 rounded-xl bg-blue-600 text-white text-xs font-bold shadow-xl flex items-center gap-2">
                         <Eye className="w-4 h-4" /> Open Full Screen Diagram
                       </span>
@@ -296,15 +313,22 @@ export const AutomationModal: React.FC<AutomationModalProps> = ({ project, onClo
               </button>
             </div>
 
-            {/* Scrollable / Zoomable Diagram Body */}
+            {/* Scrollable / Zoomable Diagram Body with Ambient Background */}
             <div
-              className="flex-1 overflow-auto p-4 sm:p-8 flex items-center justify-center cursor-zoom-out"
+              className="flex-1 overflow-auto p-4 sm:p-8 flex items-center justify-center cursor-zoom-out relative"
               onClick={() => setIsFullscreenImage(false)}
             >
+              {/* Ambient Background in Fullscreen */}
+              <img
+                src={project.image}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover blur-3xl opacity-20 scale-110 select-none pointer-events-none"
+              />
               <img
                 src={project.image}
                 alt={`${project.title} complete workflow architecture diagram`}
-                className="max-w-none w-auto max-h-[84vh] object-contain rounded-xl border border-white/10 shadow-2xl select-none cursor-default"
+                className="relative z-10 max-w-none w-auto max-h-[84vh] object-contain rounded-xl border border-white/15 shadow-2xl select-none cursor-default"
                 referrerPolicy="no-referrer"
                 onClick={(e) => e.stopPropagation()}
               />
