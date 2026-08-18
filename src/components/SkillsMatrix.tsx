@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "motion/react";
+import React, { useRef } from "react";
+import { motion, useInView } from "motion/react";
 import { SectionHeader } from "./SectionHeader";
 import { skillCategories } from "../data/skills";
 import { Cpu, CheckCircle2, Code2, Network, Bot, Workflow } from "lucide-react";
@@ -11,10 +11,27 @@ const categoryIcons: Record<string, React.ReactNode> = {
   integrations: <Network className="w-5 h-5 text-emerald-400" />
 };
 
+const levelToWidth: Record<string, string> = {
+  EXPERT: "100%",
+  ADVANCED: "80%",
+  PROFICIENT: "60%",
+  INTERMEDIATE: "45%",
+};
+
+const levelToColor: Record<string, string> = {
+  EXPERT: "from-blue-500 to-indigo-500",
+  ADVANCED: "from-indigo-500 to-purple-500",
+  PROFICIENT: "from-purple-500 to-pink-500",
+  INTERMEDIATE: "from-zinc-500 to-zinc-400",
+};
+
 export const SkillsMatrix: React.FC = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+
   return (
     <section id="skills" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#050507] border-t border-white/5 relative">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto" ref={ref}>
         <SectionHeader
           title="Skills and Tools"
           subheadline="The core tools and technologies I use to build automations, apps, and web platforms."
@@ -48,23 +65,39 @@ export const SkillsMatrix: React.FC = () => {
                   {category.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <div
-                      key={skill.name}
-                      className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium transition-all ${
-                        skill.isPrimary
-                          ? "bg-white/10 text-white border border-white/20 shadow-sm"
-                          : "bg-white/[0.03] text-zinc-400 border border-white/[0.06]"
-                      }`}
-                    >
-                      <CheckCircle2 className={`w-3.5 h-3.5 ${skill.isPrimary ? "text-blue-400" : "text-zinc-500"}`} />
-                      <span>{skill.name}</span>
-                      <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-black/40 text-zinc-400 ml-1">
-                        {skill.level}
-                      </span>
-                    </div>
-                  ))}
+                <div className="space-y-3">
+                  {category.skills.map((skill, skillIdx) => {
+                    const width = levelToWidth[skill.level.toUpperCase()] || "50%";
+                    const gradient = levelToColor[skill.level.toUpperCase()] || "from-zinc-500 to-zinc-400";
+
+                    return (
+                      <div key={skill.name}>
+                        <div className="flex items-center justify-between mb-1">
+                          <div className="flex items-center gap-2">
+                            <CheckCircle2 className={`w-3.5 h-3.5 ${skill.isPrimary ? "text-blue-400" : "text-zinc-500"}`} />
+                            <span className={`text-xs font-medium ${skill.isPrimary ? "text-white" : "text-zinc-400"}`}>
+                              {skill.name}
+                            </span>
+                          </div>
+                          <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-white/5 text-zinc-500">
+                            {skill.level}
+                          </span>
+                        </div>
+                        <div className="h-1.5 rounded-full bg-white/[0.04] overflow-hidden">
+                          <motion.div
+                            className={`h-full rounded-full bg-gradient-to-r ${gradient}`}
+                            initial={{ width: "0%" }}
+                            animate={isInView ? { width } : { width: "0%" }}
+                            transition={{
+                              duration: 1,
+                              delay: idx * 0.15 + skillIdx * 0.08,
+                              ease: [0.25, 0.46, 0.45, 0.94]
+                            }}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </motion.div>

@@ -6,6 +6,7 @@ export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     let rafId = 0;
@@ -13,6 +14,9 @@ export const Navbar: React.FC = () => {
       cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(() => {
         setScrolled(window.scrollY > 30);
+
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        setScrollProgress(docHeight > 0 ? Math.min(window.scrollY / docHeight, 1) : 0);
 
         const sections = ["about", "web-deployments", "app-showcase", "automations", "certificates", "skills", "resume", "contact"];
         const scrollPos = window.scrollY + 200;
@@ -66,6 +70,16 @@ export const Navbar: React.FC = () => {
             : "bg-transparent py-5"
         }`}
       >
+        {/* Scroll Progress Bar */}
+        <div
+          className="absolute top-0 left-0 right-0 h-[2px] z-50"
+          style={{ background: 'transparent' }}
+        >
+          <div
+            className="h-full scroll-progress"
+            style={{ transform: `scaleX(${scrollProgress})` }}
+          />
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Monogram */}
           <a

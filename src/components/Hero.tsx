@@ -34,16 +34,24 @@ export const Hero: React.FC = () => {
       >
         {/* Profile Photo */}
         <motion.div variants={itemVariants} className="relative mb-8 flex justify-center mt-2">
-          <div className="relative">
-            <div className="absolute inset-0 bg-blue-500/20 blur-[60px] rounded-full" />
-            <div className="relative p-[3px] rounded-full bg-gradient-to-br from-blue-600 to-indigo-600">
+          <motion.div
+            className="relative"
+            animate={{ y: [0, -8, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <motion.div
+              className="absolute -inset-4 bg-blue-500/20 blur-[60px] rounded-full"
+              animate={{ opacity: [0.15, 0.35, 0.15], scale: [0.95, 1.05, 0.95] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <div className="relative p-[3px] rounded-full animate-gradient-spin">
               <img 
                 src="/Images/Image.png" 
                 alt="Muhammad Hamza" 
-                className="w-40 h-40 lg:w-56 lg:h-56 rounded-full object-cover"
+                className="w-40 h-40 lg:w-56 lg:h-56 rounded-full object-cover bg-[#0a0a0f]"
               />
             </div>
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* Availability Badge */}
@@ -88,7 +96,7 @@ export const Hero: React.FC = () => {
         >
           <a
             href="#automations"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-white text-zinc-950 font-bold text-sm tracking-wide hover:bg-zinc-100 hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+            className="w-full sm:w-auto relative inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-white text-zinc-950 font-bold text-sm tracking-wide hover:bg-zinc-100 hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
           >
             <Workflow className="w-4 h-4 text-zinc-950" />
             <span>View Automations</span>

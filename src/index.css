@@ -73,3 +73,29 @@
   background-clip: text;
   color: transparent;
 }
+
+/* === Professional Micro-Animations === */
+
+/* Rotating gradient border for profile photo ring */
+.animate-gradient-spin {
+  background: conic-gradient(
+    from 0deg,
+    #3b82f6,
+    #6366f1,
+    #8b5cf6,
+    #3b82f6
+  );
+  animation: gradient-spin 3s linear infinite;
+}
+
+@keyframes gradient-spin {
+  from { filter: hue-rotate(0deg); }
+  to { filter: hue-rotate(360deg); }
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  background: linear-gradient(90deg, #3b82f6, #6366f1, #8b5cf6);
+  transform-origin: left;
+  height: 2px;
+}
