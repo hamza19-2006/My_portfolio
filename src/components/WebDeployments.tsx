@@ -51,7 +51,7 @@ export const WebDeployments: React.FC = () => {
           viewport={{ once: true }}
           variants={{
             hidden: {},
-            visible: { transition: { staggerChildren: 0.12 } }
+            visible: { transition: { staggerChildren: 0.06 } }
           }}
         >
           {filteredProjects.map((project) => (
