@@ -44,7 +44,7 @@ export const Hero: React.FC = () => {
               animate={{ opacity: [0.15, 0.35, 0.15], scale: [0.95, 1.05, 0.95] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
-            <div className="relative p-[3px] rounded-full animate-gradient-spin">
+            <div className="relative p-[3px] rounded-full bg-gradient-to-br from-blue-600 to-indigo-600">
               <img 
                 src="/Images/Image.png" 
                 alt="Muhammad Hamza" 

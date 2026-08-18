@@ -76,23 +76,6 @@
 
 /* === Professional Micro-Animations === */
 
-/* Rotating gradient border for profile photo ring */
-.animate-gradient-spin {
-  background: conic-gradient(
-    from 0deg,
-    #3b82f6,
-    #6366f1,
-    #818cf8,
-    #3b82f6
-  );
-  animation: gradient-spin 4s linear infinite;
-}
-
-@keyframes gradient-spin {
-  from { rotate: 0deg; }
-  to { rotate: 360deg; }
-}
-
 /* Scroll progress bar */
 .scroll-progress {
   background: linear-gradient(90deg, #3b82f6, #6366f1, #8b5cf6);
