@@ -59,9 +59,9 @@ export const AppShowcase: React.FC = () => {
                       </div>
                       <div>
                         <div className="flex flex-wrap items-center gap-2 mb-1">
-                          <span className="px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-[11px] font-bold tracking-wide flex items-center gap-1.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-                            Production Ready Build
+                          <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[11px] font-bold tracking-wide flex items-center gap-1.5 shadow-sm">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                            Live on Google Play
                           </span>
                           <span className="text-xs text-zinc-500 font-mono">v{app.version}</span>
                         </div>
