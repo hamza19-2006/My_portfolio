@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
             <Github className="w-4 h-4" />
           </a>
           <a
-            href="https://www.linkedin.com/in/muhammad-hamza-a57a7642b"
+            href="https://www.linkedin.com/in/hamza-systems"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-400 transition-colors"
@@ -56,7 +56,7 @@ export const Footer: React.FC = () => {
             <MessageSquare className="w-4 h-4" />
           </a>
           <a
-            href="mailto:hn955779@gmail.com"
+            href="mailto:m.hamza.systems@gmail.com"
             className="hover:text-blue-400 transition-colors"
             aria-label="Email"
           >

@@ -138,7 +138,7 @@ export const Navbar: React.FC = () => {
               <Github className="w-4 h-4" />
             </a>
             <a
-              href="https://www.linkedin.com/in/muhammad-hamza-a57a7642b"
+              href="https://www.linkedin.com/in/hamza-systems"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg text-zinc-400 hover:text-blue-400 hover:bg-white/5 border border-transparent hover:border-white/10 transition-all"
@@ -209,7 +209,7 @@ export const Navbar: React.FC = () => {
                     <Github className="w-5 h-5" />
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/muhammad-hamza-a57a7642b"
+                    href="https://www.linkedin.com/in/hamza-systems"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 rounded-xl bg-white/5 text-zinc-300 hover:text-blue-400"

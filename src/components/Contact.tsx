@@ -44,7 +44,7 @@ export const Contact: React.FC = () => {
         console.error("Form Submission Error:", err);
         const subject = encodeURIComponent(`Project Inquiry from ${formData.name}`);
         const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nProject Type: ${formData.projectType}\n\nMessage:\n${formData.message}`);
-        window.open(`mailto:hn955779@gmail.com?subject=${subject}&body=${body}`, "_blank");
+        window.open(`mailto:m.hamza.systems@gmail.com?subject=${subject}&body=${body}`, "_blank");
         setIsSubmitted(true);
       } finally {
         setIsSubmitting(false);
@@ -52,7 +52,7 @@ export const Contact: React.FC = () => {
     } else {
       const subject = encodeURIComponent(`Project Inquiry from ${formData.name}`);
       const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nProject Type: ${formData.projectType}\n\nMessage:\n${formData.message}`);
-      window.open(`mailto:hn955779@gmail.com?subject=${subject}&body=${body}`, "_blank");
+      window.open(`mailto:m.hamza.systems@gmail.com?subject=${subject}&body=${body}`, "_blank");
       setIsSubmitting(false);
       setIsSubmitted(true);
     }
@@ -117,7 +117,7 @@ export const Contact: React.FC = () => {
 
               {/* Email */}
               <a
-                href="mailto:hn955779@gmail.com"
+                href="mailto:m.hamza.systems@gmail.com"
                 className="glass-card shimmer-card rounded-2xl p-4 flex items-center justify-between hover:border-blue-500/40 hover:bg-blue-500/5 transition-all group"
               >
                 <div className="flex items-center gap-3.5">
@@ -128,7 +128,7 @@ export const Contact: React.FC = () => {
                     <h4 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">
                       Email
                     </h4>
-                    <span className="text-xs text-zinc-400 font-mono">hn955779@gmail.com</span>
+                    <span className="text-xs text-zinc-400 font-mono">m.hamza.systems@gmail.com</span>
                   </div>
                 </div>
                 <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
@@ -136,7 +136,7 @@ export const Contact: React.FC = () => {
 
               {/* LinkedIn */}
               <a
-                href="https://www.linkedin.com/in/muhammad-hamza-a57a7642b"
+                href="https://www.linkedin.com/in/hamza-systems"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-card shimmer-card rounded-2xl p-4 flex items-center justify-between hover:border-indigo-500/40 hover:bg-indigo-500/5 transition-all group"
@@ -149,7 +149,7 @@ export const Contact: React.FC = () => {
                     <h4 className="text-sm font-bold text-white group-hover:text-indigo-400 transition-colors">
                       LinkedIn
                     </h4>
-                    <span className="text-xs text-zinc-400 font-mono">in/muhammad-hamza</span>
+                    <span className="text-xs text-zinc-400 font-mono">in/hamza-systems</span>
                   </div>
                 </div>
                 <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all" />
