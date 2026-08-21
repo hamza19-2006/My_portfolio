@@ -136,7 +136,7 @@ export const Contact: React.FC = () => {
 
               {/* LinkedIn */}
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/muhammad-hamza-a57a7642b"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-card shimmer-card rounded-2xl p-4 flex items-center justify-between hover:border-indigo-500/40 hover:bg-indigo-500/5 transition-all group"
@@ -149,7 +149,7 @@ export const Contact: React.FC = () => {
                     <h4 className="text-sm font-bold text-white group-hover:text-indigo-400 transition-colors">
                       LinkedIn
                     </h4>
-                    <span className="text-xs text-zinc-400">Professional Profile</span>
+                    <span className="text-xs text-zinc-400 font-mono">in/muhammad-hamza</span>
                   </div>
                 </div>
                 <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all" />

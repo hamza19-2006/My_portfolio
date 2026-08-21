@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
             <Github className="w-4 h-4" />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/muhammad-hamza-a57a7642b"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-400 transition-colors"
