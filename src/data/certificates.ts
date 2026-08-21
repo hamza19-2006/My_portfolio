@@ -15,6 +15,18 @@ export const certificates: Certificate[] = [
   },
   {
     id: "cert-2",
+    title: "Certificate of Participation — UCP Summer School 2026",
+    issuer: "University of Central Punjab",
+    issueDate: "August 2026",
+    image: "/certificates/cert-ucp-summer-school-2026.jpeg",
+    category: "Participation",
+    isWinningAward: false,
+    awardRank: "Participant",
+    description: "Awarded for active participation and successful completion of the UCP Summer School 2026, featuring training sessions on Data Analytics, Entrepreneurship, Digital Marketing, and Fintech.",
+    skillsLearned: ["Data Analytics", "Fintech", "Entrepreneurship", "Digital Marketing"]
+  },
+  {
+    id: "cert-3",
     title: "Certificate of Participation — Summer Jam 2026",
     issuer: "University of Central Punjab",
     issueDate: "2026",
@@ -26,7 +38,7 @@ export const certificates: Certificate[] = [
     skillsLearned: ["AI Tools & Applications", "Collaborative Building", "Rapid Prototyping", "Tech Innovation"]
   },
   {
-    id: "cert-3",
+    id: "cert-4",
     title: "Certificate of Participation — Robotics Programme 2025",
     issuer: "Punjab Colleges",
     issueDate: "2025",
