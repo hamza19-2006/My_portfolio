@@ -48,5 +48,17 @@ export const certificates: Certificate[] = [
     awardRank: "Participant",
     description: "Completed the Robotics Programme 2025 at Punjab Colleges, Johar Town, Lahore. Gained hands-on exposure to robotics fundamentals, hardware-software integration, and automation logic during the structured programme sessions.",
     skillsLearned: ["Robotics Fundamentals", "Hardware Integration", "Automation Logic", "Engineering Thinking"]
+  },
+  {
+    id: "cert-5",
+    title: "Certificate of Participation — Freelancing Mastery Program",
+    issuer: "Punjab Colleges",
+    issueDate: "August 2026",
+    image: "/certificates/cert-freelancing-mastery.png",
+    category: "Participation",
+    isWinningAward: false,
+    awardRank: "Participant",
+    description: "Successfully completed the Freelancing Mastery Program online course organized by Punjab Colleges, gaining practical methodologies for client communication, project delivery, and digital freelance workflows.",
+    skillsLearned: ["Freelancing Strategy", "Client Communication", "Proposal Writing", "Project Delivery"]
   }
 ];
