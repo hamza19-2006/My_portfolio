@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import { motion, useScroll, useSpring } from "motion/react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
@@ -38,6 +38,39 @@ export default function App() {
     damping: 30,
     restDelta: 0.001,
   });
+
+  // Handle direct hash navigation on initial page load (e.g. from LinkedIn /#automations)
+  useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const id = hash.replace("#", "");
+        const target = document.getElementById(id);
+        if (target) {
+          const navOffset = 80;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navOffset;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth"
+          });
+        }
+      }
+    };
+
+    // Staggered attempts to ensure the DOM layout and elements are fully rendered
+    const t1 = setTimeout(scrollToHash, 100);
+    const t2 = setTimeout(scrollToHash, 400);
+    const t3 = setTimeout(scrollToHash, 800);
+
+    window.addEventListener("hashchange", scrollToHash);
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      window.removeEventListener("hashchange", scrollToHash);
+    };
+  }, []);
 
   return (
     <div className="bg-[#050507] min-h-screen text-zinc-100 font-sans selection:bg-blue-600/30 selection:text-blue-200 relative">
