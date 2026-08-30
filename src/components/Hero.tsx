@@ -31,13 +31,11 @@ export const Hero: React.FC = () => {
 
   return (
     <section className="relative min-h-[92vh] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-24 pb-16 overflow-hidden">
-      {/* Ambient background micro-glows with gentle breathing animation */}
-      <motion.div
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[450px] bg-gradient-to-tr from-blue-600/15 via-indigo-600/10 to-purple-600/10 rounded-full blur-[140px] pointer-events-none"
-        animate={{ scale: [1, 1.08, 1], opacity: [0.7, 1, 0.7] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      {/* Ambient background micro-glows */}
+      <div
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[900px] h-[300px] sm:h-[450px] bg-gradient-to-tr from-blue-600/15 via-indigo-600/10 to-purple-600/10 rounded-full blur-[80px] sm:blur-[140px] pointer-events-none"
       />
-      <div className="absolute top-12 left-10 w-72 h-72 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-12 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-blue-500/5 rounded-full blur-[70px] sm:blur-[100px] pointer-events-none" />
 
       <motion.div
         className="max-w-5xl mx-auto text-center z-10"

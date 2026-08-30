@@ -50,7 +50,7 @@
    MASTER UI DESIGN SYSTEM & MICRO-INTERACTIONS
    =================================================== */
 
-/* 1. Cinematic Film Grain Texture (0.022 Opacity for Subtle Physical Depth) */
+/* 1. Cinematic Film Grain Texture — Desktop only to preserve 60fps on mobile */
 .film-grain {
   position: fixed;
   inset: 0;
@@ -59,25 +59,49 @@
   pointer-events: none;
   z-index: 9999;
   opacity: 0.022;
+  transform: translateZ(0);
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* 2. Glassmorphic Surfaces with Realistic Edge Specularity */
+@media (max-width: 768px), (hover: none), (pointer: coarse) {
+  .film-grain {
+    display: none !important;
+  }
+}
+
+/* 2. Glassmorphic Surfaces with Optimized Mobile Performance */
 .glass-panel {
-  background: rgba(13, 13, 18, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(13, 13, 18, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transform: translateZ(0);
 }
 
 .glass-card {
-  background: rgba(18, 18, 24, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(18, 18, 24, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.07);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateZ(0);
+}
+
+/* Fast GPU rendering on mobile devices */
+@media (max-width: 768px) {
+  .glass-panel {
+    background: rgba(13, 13, 18, 0.95);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  .glass-card {
+    background: rgba(18, 18, 24, 0.92);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
 }
 
 .glass-card:hover {
@@ -85,34 +109,36 @@
   box-shadow: 0 15px 40px -10px rgba(99, 102, 241, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-/* 3. Card Shimmer Highlight (Silky Specular Sweep on Hover) */
+/* 3. Card Shimmer Highlight (Silky Specular Sweep on Hover - Desktop only) */
 .shimmer-card {
   position: relative;
   overflow: hidden;
 }
 
-.shimmer-card::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    60deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.02) 42%,
-    rgba(255, 255, 255, 0.08) 50%,
-    rgba(255, 255, 255, 0.02) 58%,
-    transparent 100%
-  );
-  transform: translateX(-100%) rotate(25deg);
-  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
-}
+@media (hover: hover) and (min-width: 769px) {
+  .shimmer-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      60deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.02) 42%,
+      rgba(255, 255, 255, 0.08) 50%,
+      rgba(255, 255, 255, 0.02) 58%,
+      transparent 100%
+    );
+    transform: translateX(-100%) rotate(25deg);
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
 
-.shimmer-card:hover::after {
-  transform: translateX(100%) rotate(25deg);
+  .shimmer-card:hover::after {
+    transform: translateX(100%) rotate(25deg);
+  }
 }
 
 /* 4. Luxury Typography Gradients */
@@ -135,4 +161,5 @@
   background: linear-gradient(90deg, #3b82f6, #6366f1, #a855f7);
   transform-origin: left;
   height: 2px;
+  will-change: transform;
 }

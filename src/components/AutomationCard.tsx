@@ -11,8 +11,7 @@ interface AutomationCardProps {
 export const AutomationCard: React.FC<AutomationCardProps> = ({ project, onClick }) => {
   return (
     <motion.div
-      layoutId={`automation-card-${project.id}`}
-      whileHover={{ y: -6, scale: 1.01 }}
+      whileHover={{ y: -6 }}
       transition={{ type: "spring", stiffness: 150, damping: 15 }}
       onClick={onClick}
       onKeyDown={(e: React.KeyboardEvent) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick(); } }}

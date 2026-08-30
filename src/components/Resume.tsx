@@ -4,7 +4,7 @@ import { SectionHeader } from "./SectionHeader";
 import { FileText, Download, Eye, ExternalLink, CheckCircle2 } from "lucide-react";
 import { MagneticButton } from "./MagneticButton";
 
-const RESUME_PATH = "/resume/Hamza_Cv.pdf";
+const RESUME_PATH = "/resume/Muhammad_Hamza_Resume.pdf";
 
 const resumeHighlights = [
   "n8n Workflow Automation Expert",
@@ -22,17 +22,15 @@ export const Resume: React.FC = () => {
       className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#07070a] border-t border-white/5 relative overflow-hidden"
     >
       {/* Ambient glow with gentle breathing animation */}
-      <motion.div
-        className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none"
-        animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+      <div
+        className="absolute bottom-0 left-1/4 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-blue-600/10 rounded-full blur-[100px] sm:blur-[140px] pointer-events-none"
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionHeader
           title="Resume"
-          subheadline="Download my CV or preview it directly below."
-          badge="CV"
+          subheadline="Download my resume or preview it directly below."
+          badge="Resume"
           icon={FileText}
         />
 
@@ -87,21 +85,21 @@ export const Resume: React.FC = () => {
                 <MagneticButton strength={0.3} className="flex-1">
                   <a
                     href={RESUME_PATH}
-                    download="Muhammad_Hamza_CV.pdf"
+                    download="Muhammad_Hamza_Resume.pdf"
                     className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-sm tracking-wide shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 transition-all transform active:scale-95"
                   >
                     <Download className="w-4 h-4" />
-                    <span>Download CV</span>
+                    <span>Download Resume</span>
                   </a>
                 </MagneticButton>
 
                 <MagneticButton strength={0.3} className="flex-1">
                   <button
                     onClick={() => setShowPreview(!showPreview)}
-                    className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-white font-bold text-sm tracking-wide border border-white/10 hover:border-white/20 transition-all transform active:scale-95"
+                    className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-white font-bold text-sm tracking-wide border border-white/10 hover:border-white/20 transition-all transform active:scale-95 cursor-pointer"
                   >
                     <Eye className="w-4 h-4 text-blue-400" />
-                    <span>{showPreview ? "Hide Preview" : "Preview CV"}</span>
+                    <span>{showPreview ? "Hide Preview" : "Preview Resume"}</span>
                   </button>
                 </MagneticButton>
               </div>
@@ -138,12 +136,12 @@ export const Resume: React.FC = () => {
                   <div className="flex items-center gap-2.5">
                     <FileText className="w-4 h-4 text-blue-400" />
                     <span className="text-sm font-bold text-white">
-                      Hamza_Cv.pdf
+                      Muhammad_Hamza_Resume.pdf
                     </span>
                   </div>
                   <button
                     onClick={() => setShowPreview(false)}
-                    className="text-xs text-zinc-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-white/10 transition-all font-medium"
+                    className="text-xs text-zinc-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-white/10 transition-all font-medium cursor-pointer"
                   >
                     Close
                   </button>
@@ -166,16 +164,16 @@ export const Resume: React.FC = () => {
                   Resume Preview
                 </h4>
                 <p className="text-sm text-zinc-400 mb-6 max-w-sm">
-                  Click "Preview CV" to view the full resume right here, or
+                  Click "Preview Resume" to view the full resume right here, or
                   download it directly.
                 </p>
                 <MagneticButton strength={0.3}>
                   <button
                     onClick={() => setShowPreview(true)}
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm font-semibold transition-all transform active:scale-95"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm font-semibold transition-all transform active:scale-95 cursor-pointer"
                   >
                     <Eye className="w-4 h-4 text-blue-400" />
-                    <span>Preview CV</span>
+                    <span>Preview Resume</span>
                   </button>
                 </MagneticButton>
               </div>

@@ -61,12 +61,10 @@ export const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#050507] border-t border-white/5 relative overflow-hidden">
       {/* Background ambient lighting */}
-      <motion.div
-        className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none"
-        animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      <div
+        className="absolute bottom-0 right-0 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-blue-600/10 rounded-full blur-[90px] sm:blur-[140px] pointer-events-none"
       />
-      <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-indigo-600/10 rounded-full blur-[90px] sm:blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionHeader

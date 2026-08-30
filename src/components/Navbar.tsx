@@ -9,36 +9,42 @@ export const Navbar: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    let rafId = 0;
+    let ticking = false;
     const handleScroll = () => {
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => {
-        setScrolled(window.scrollY > 30);
-
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        setScrollProgress(docHeight > 0 ? Math.min(window.scrollY / docHeight, 1) : 0);
-
-        const sections = ["about", "web-deployments", "app-showcase", "automations", "certificates", "skills", "resume", "contact"];
-        const scrollPos = window.scrollY + 200;
-
-        for (const sectionId of sections) {
-          const el = document.getElementById(sectionId);
-          if (el) {
-            const top = el.offsetTop;
-            const height = el.offsetHeight;
-            if (scrollPos >= top && scrollPos < top + height) {
-              setActiveSection(sectionId);
-              break;
-            }
-          }
-        }
-      });
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 30);
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          setScrollProgress(docHeight > 0 ? Math.min(window.scrollY / docHeight, 1) : 0);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Use IntersectionObserver for 60fps zero-lag section detection
+    const sections = ["about", "web-deployments", "app-showcase", "automations", "certificates", "skills", "resume", "contact"];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -60% 0px" }
+    );
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      cancelAnimationFrame(rafId);
+      observer.disconnect();
     };
   }, []);
 
