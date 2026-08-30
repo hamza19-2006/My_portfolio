@@ -11,11 +11,11 @@ interface CertificateCardProps {
 export const CertificateCard: React.FC<CertificateCardProps> = ({ cert, onPreview }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.98 }}
       whileHover={{ y: -6 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.25 }}
       className={`group glass-card rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300 ${
         cert.isWinningAward
           ? "border-amber-500/30 hover:border-amber-400 hover:shadow-2xl hover:shadow-amber-500/10"

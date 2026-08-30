@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { SectionHeader } from "./SectionHeader";
 import { WebDeploymentCard } from "./WebDeploymentCard";
 import { webProjects } from "../data/projects";
@@ -13,7 +13,7 @@ export const WebDeployments: React.FC = () => {
   const filteredProjects =
     activeCategory === "All"
       ? webProjects
-      : webProjects.filter((p) => p.category === activeCategory);
+      : webProjects.filter((p) => p.category.toLowerCase() === activeCategory.toLowerCase());
 
   return (
     <section id="web-deployments" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#07070a] relative">
@@ -32,7 +32,7 @@ export const WebDeployments: React.FC = () => {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all ${
+                className={`px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all cursor-pointer ${
                   activeCategory === category
                     ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
                     : "bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/5"
@@ -44,28 +44,21 @@ export const WebDeployments: React.FC = () => {
           </div>
         </div>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.06 } }
-          }}
-        >
-          {filteredProjects.map((project) => (
-            <motion.div
-              key={project.id}
-              variants={{
-                hidden: { opacity: 0, y: 30, scale: 0.95 },
-                visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
-              }}
-            >
-              <WebDeploymentCard project={project} />
-            </motion.div>
-          ))}
-        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 15, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+              >
+                <WebDeploymentCard project={project} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );

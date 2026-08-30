@@ -9,17 +9,8 @@ interface WebDeploymentCardProps {
 
 export const WebDeploymentCard: React.FC<WebDeploymentCardProps> = ({ project }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      whileHover={{ y: -6 }}
-      transition={{
-        type: "spring",
-        stiffness: 120,
-        damping: 18,
-      }}
-      className="group glass-card shimmer-card rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-blue-500/40 hover:shadow-2xl hover:shadow-blue-500/10"
+    <div
+      className="group glass-card shimmer-card rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-blue-500/40 hover:shadow-2xl hover:shadow-blue-500/10 h-full"
     >
       <div>
         {/* Preview Image Header */}
@@ -91,6 +82,6 @@ export const WebDeploymentCard: React.FC<WebDeploymentCardProps> = ({ project })
           Live
         </span>
       </div>
-    </motion.div>
+    </div>
   );
 };
