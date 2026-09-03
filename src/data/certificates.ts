@@ -14,6 +14,19 @@ export const certificates: Certificate[] = [
     skillsLearned: ["AI Project Development", "Technical Presentation", "Problem Solving", "Team Collaboration"]
   },
   {
+    id: "cert-cs50",
+    title: "CS50 — Introduction to Computer Science",
+    issuer: "Harvard University",
+    issueDate: "2026",
+    image: "/certificates/cert-cs50.png",
+    credentialUrl: "https://certificates.cs50.io/a968d2ed-b376-4078-b1ec-e4026c58b62e",
+    category: "Course",
+    isWinningAward: false,
+    awardRank: "Verified Course",
+    description: "Successfully completed CS50: Introduction to Computer Science from Harvard University. Mastered algorithmic thinking, data structures, memory management, and software engineering principles across C, Python, SQL, and web technologies.",
+    skillsLearned: ["C & Python", "Data Structures", "Algorithms", "SQL & Databases", "Memory Management"]
+  },
+  {
     id: "cert-2",
     title: "Certificate of Participation — UCP Summer School 2026",
     issuer: "University of Central Punjab",
@@ -24,6 +37,18 @@ export const certificates: Certificate[] = [
     awardRank: "Participant",
     description: "Awarded for active participation and successful completion of the UCP Summer School 2026, featuring training sessions on Data Analytics, Entrepreneurship, Digital Marketing, and Fintech.",
     skillsLearned: ["Data Analytics", "Fintech", "Entrepreneurship", "Digital Marketing"]
+  },
+  {
+    id: "cert-5",
+    title: "Certificate of Participation — Freelancing Mastery Program",
+    issuer: "Punjab Colleges",
+    issueDate: "August 2026",
+    image: "/certificates/cert-freelancing-mastery.png",
+    category: "Participation",
+    isWinningAward: false,
+    awardRank: "Participant",
+    description: "Successfully completed the Freelancing Mastery Program online course organized by Punjab Colleges, gaining practical methodologies for client communication, project delivery, and digital freelance workflows.",
+    skillsLearned: ["Freelancing Strategy", "Client Communication", "Proposal Writing", "Project Delivery"]
   },
   {
     id: "cert-3",
@@ -48,17 +73,5 @@ export const certificates: Certificate[] = [
     awardRank: "Participant",
     description: "Completed the Robotics Programme 2025 at Punjab Colleges, Johar Town, Lahore. Gained hands-on exposure to robotics fundamentals, hardware-software integration, and automation logic during the structured programme sessions.",
     skillsLearned: ["Robotics Fundamentals", "Hardware Integration", "Automation Logic", "Engineering Thinking"]
-  },
-  {
-    id: "cert-5",
-    title: "Certificate of Participation — Freelancing Mastery Program",
-    issuer: "Punjab Colleges",
-    issueDate: "August 2026",
-    image: "/certificates/cert-freelancing-mastery.png",
-    category: "Participation",
-    isWinningAward: false,
-    awardRank: "Participant",
-    description: "Successfully completed the Freelancing Mastery Program online course organized by Punjab Colleges, gaining practical methodologies for client communication, project delivery, and digital freelance workflows.",
-    skillsLearned: ["Freelancing Strategy", "Client Communication", "Proposal Writing", "Project Delivery"]
   }
 ];

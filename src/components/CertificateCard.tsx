@@ -28,6 +28,9 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({ cert, onPrevie
           <img
             src={cert.image}
             alt={cert.title}
+            onError={(e) => {
+              e.currentTarget.src = "/certificates/cert-cs50.svg";
+            }}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />

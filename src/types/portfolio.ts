@@ -50,7 +50,7 @@ export interface Certificate {
   issueDate: string;
   credentialUrl?: string;
   image: string;
-  category: 'Hackathons' | 'Automation' | 'Development' | 'Professional' | 'Participation' | 'Internships';
+  category: 'Hackathons' | 'Automation' | 'Development' | 'Professional' | 'Participation' | 'Internships' | 'Course' | 'Courses';
   isWinningAward?: boolean;
   awardRank?: string; // e.g. "1st Place Winner", "Top 1% Distinction"
   description: string;
