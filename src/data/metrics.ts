@@ -15,9 +15,9 @@ export const impactMetrics: MetricItem[] = [
   },
   {
     id: "m-3",
-    value: "6",
+    value: "7",
     label: "Certificates and Awards",
-    subtext: "Including CS50 and 2nd Place in UCP AI Project Competition 2026"
+    subtext: "Including Anthropic MCP, CS50, and 2nd Place in AI Competition"
   },
   {
     id: "m-4",

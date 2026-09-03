@@ -27,6 +27,19 @@ export const certificates: Certificate[] = [
     skillsLearned: ["C & Python", "Data Structures", "Algorithms", "SQL & Databases", "Memory Management"]
   },
   {
+    id: "cert-mcp",
+    title: "Introduction to Model Context Protocol",
+    issuer: "Anthropic",
+    issueDate: "September 2026",
+    image: "/certificates/cert-anthropic-mcp.png",
+    credentialUrl: "https://verify.skilljar.com/c/ecvpszxk6iqy",
+    category: "Course",
+    isWinningAward: false,
+    awardRank: "Anthropic Certified",
+    description: "Official certificate from Anthropic for completing Introduction to Model Context Protocol (MCP). Covers MCP client-server architecture, building custom MCP servers and clients using the Python SDK, and integrating LLMs with external tools, resources, and prompt templates.",
+    skillsLearned: ["Model Context Protocol (MCP)", "Anthropic Claude", "Python SDK", "MCP Server Architecture", "AI Agent Tools"]
+  },
+  {
     id: "cert-2",
     title: "Certificate of Participation — UCP Summer School 2026",
     issuer: "University of Central Punjab",
