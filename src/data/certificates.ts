@@ -19,7 +19,7 @@ export const certificates: Certificate[] = [
     issuer: "Harvard University",
     issueDate: "2026",
     image: "/certificates/cert-cs50.png",
-    credentialUrl: "https://certificates.cs50.io/a968d2ed-b376-4078-b1ec-e4026c58b62e",
+    credentialUrl: "https://certificates.cs50.io/a968d2ed-b376-4078-b1ec-e4026c58b62e.png?size=A4",
     category: "Course",
     isWinningAward: false,
     awardRank: "Verified Course",
