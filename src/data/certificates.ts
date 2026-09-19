@@ -52,6 +52,18 @@ export const certificates: Certificate[] = [
     skillsLearned: ["Data Analytics", "Fintech", "Entrepreneurship", "Digital Marketing"]
   },
   {
+    id: "cert-english-fest",
+    title: "Certificate of Participation — English Creative Fest",
+    issuer: "University of Central Punjab",
+    issueDate: "2026",
+    image: "/certificates/cert-english-fest.png",
+    category: "Participation",
+    isWinningAward: false,
+    awardRank: "Participant",
+    description: "Awarded in recognition of active participation and successful completion of the English Creative Fest training ('English Beyond the Classroom'), organized by the Faculty of Languages & Literature at the University of Central Punjab.",
+    skillsLearned: ["Communication Skills", "Creative Expression", "Professional English", "Presentation"]
+  },
+  {
     id: "cert-5",
     title: "Certificate of Participation — Freelancing Mastery Program",
     issuer: "Punjab Colleges",
