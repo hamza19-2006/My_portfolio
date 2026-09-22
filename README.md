@@ -76,7 +76,7 @@ public/
 
 ## Contact
 
-- **Email:** m.hamza.system@gmail.com
+- **Email:** m.hamza.systems@gmail.com
 - **GitHub:** [github.com/hamza19-2006](https://github.com/hamza19-2006)
 - **WhatsApp:** [+92 303 2172766](https://wa.me/923032172766)
 
