@@ -8,7 +8,7 @@ export const About: React.FC = () => {
     {
       step: "01",
       title: "Event Ingestion & Trigger",
-      desc: "Inbound webhooks, Meta Graph events, Stripe triggers, and cron schedulers with cryptographic signature verification.",
+      desc: "Webhooks, social media events, payment triggers, and scheduled cron jobs.",
       tech: "n8n Webhook • Meta Cloud API • Cron",
       icon: Terminal,
       color: "text-blue-400",
@@ -17,7 +17,7 @@ export const About: React.FC = () => {
     {
       step: "02",
       title: "Payload Validation & Schema",
-      desc: "Idempotency validation, data scrubbing, schema parsing, and deduplication to ensure zero orphaned records.",
+      desc: "Validating and cleaning incoming data to prevent duplicates and missing records.",
       tech: "TypeScript • Custom JS Nodes • JSON Schema",
       icon: Network,
       color: "text-sky-400",
@@ -34,8 +34,8 @@ export const About: React.FC = () => {
     },
     {
       step: "04",
-      title: "Resilient Multi-Target Dispatch",
-      desc: "Two-way CRM sync, instant WhatsApp dispatch, PostgreSQL mutation, and automated dead-letter retry on external failure.",
+      title: "Output & Delivery",
+      desc: "Syncing data to CRM, sending WhatsApp messages, saving to database, and retrying failed steps automatically.",
       tech: "GoHighLevel • PostgreSQL • WhatsApp API",
       icon: Database,
       color: "text-emerald-400",
@@ -47,9 +47,9 @@ export const About: React.FC = () => {
     <section id="about" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#09090d] border-t border-white/5 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionHeader
-          title="Engineering Approach & Workflow Architecture"
+          title="How I Work"
           subheadline="How I build reliable, production-tested automation workflows that solve real business bottlenecks."
-          badge="Behind the Systems"
+          badge="About"
           icon={User}
         />
 
@@ -77,7 +77,7 @@ export const About: React.FC = () => {
             </p>
 
             <p>
-              Coming from a Computer Science background, I treat workflows like real software: writing custom JavaScript nodes for data normalization, implementing token-authenticated webhooks, and connecting frontier LLMs (Claude and Gemini) for tasks like customer inquiry routing and document parsing.
+              Coming from a Computer Science background, I treat workflows like real software: writing custom JavaScript nodes for data normalization, implementing token-authenticated webhooks, and connecting Claude and Gemini for things like customer inquiry routing and document parsing.
             </p>
 
             <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 space-y-2 text-xs text-zinc-300">

@@ -64,7 +64,7 @@ export const Hero: React.FC = () => {
               variants={itemVariants}
               className="text-base sm:text-lg text-zinc-400 leading-relaxed mb-8 max-w-2xl font-normal"
             >
-              Hi, I'm <strong className="text-white font-medium">Muhammad Hamza</strong> — an automation architect and developer based in Lahore. I build resilient n8n workflows that connect your CRM, WhatsApp API, AI models, and custom databases into reliable systems that eliminate manual repetitive work.
+              Hi, I'm <strong className="text-white font-medium">Muhammad Hamza</strong> — an automation architect and developer based in Lahore. I build n8n workflows that connect CRMs, WhatsApp, AI models, and databases — so businesses can stop doing things manually.
             </motion.p>
 
             {/* Action Buttons */}

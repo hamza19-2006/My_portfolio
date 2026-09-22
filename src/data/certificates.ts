@@ -10,7 +10,7 @@ export const certificates: Certificate[] = [
     category: "Hackathons",
     isWinningAward: true,
     awardRank: "2nd Place — AI Excellence Award",
-    description: "Secured second place in the Artificial Intelligence Project Competition held as part of the Summer Internship Program 2026 at University of Central Punjab. Recognized for outstanding problem-solving, technical execution, teamwork, presentation quality, and effective use of AI tools under competition pressure.",
+    description: "Secured second place in the Artificial Intelligence Project Competition at the University of Central Punjab, recognized for technical execution and effective AI integration during the competition.",
     skillsLearned: ["AI Project Development", "Technical Presentation", "Problem Solving", "Team Collaboration"]
   },
   {
@@ -23,7 +23,7 @@ export const certificates: Certificate[] = [
     category: "Course",
     isWinningAward: false,
     awardRank: "Verified Course",
-    description: "Successfully completed CS50: Introduction to Computer Science from Harvard University. Mastered algorithmic thinking, data structures, memory management, and software engineering principles across C, Python, SQL, and web technologies.",
+    description: "Completed CS50: Introduction to Computer Science from Harvard University, learning core fundamentals of algorithms, data structures, and web development using C, Python, and SQL.",
     skillsLearned: ["C & Python", "Data Structures", "Algorithms", "SQL & Databases", "Memory Management"]
   },
   {

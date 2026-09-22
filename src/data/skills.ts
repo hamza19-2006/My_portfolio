@@ -4,7 +4,7 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "orchestration",
     title: "Workflow Orchestration & n8n",
-    description: "Architecting resilient, self-healing event pipelines, webhook ingestors, and data synchronization routines.",
+    description: "Building reliable automated workflows and webhook integrations with n8n.",
     skills: [
       { name: "n8n Self-Hosted & Cloud", level: "Production Core", capability: "Custom JS transform nodes, binary data routers & cron schedules", isPrimary: true },
       { name: "Fault-Tolerant Webhooks", level: "Production Core", capability: "HMAC verification, rate-limit handling & error trigger branches", isPrimary: true },
@@ -16,8 +16,8 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     id: "ai-llm",
-    title: "Autonomous AI & Intelligent Systems",
-    description: "Integrating frontier LLMs and multimodal agents into real-world operational workflows with deterministic guardrails.",
+    title: "AI & LLM Integration",
+    description: "Connecting AI models like Claude and Gemini into business workflows for chat, document processing, and data extraction.",
     skills: [
       { name: "Google Gemini (2.5 & Flash)", level: "Production Core", capability: "High-speed multimodal OCR, audio analysis & structured JSON output", isPrimary: true },
       { name: "Claude 3.5 & Anthropic MCP", level: "Certified", capability: "Deep reasoning, context-aware triage & model context protocol tooling", isPrimary: true },
@@ -30,7 +30,7 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "fullstack-engineering",
     title: "Full-Stack & Mobile Engineering",
-    description: "Engineering high-performance client applications, cross-platform mobile apps, and serverless architectures.",
+    description: "Building web apps, mobile apps, and backend services.",
     skills: [
       { name: "Flutter & Dart", level: "Play Store Live", capability: "State management, offline-first SQLite cache & Play Store deployment", isPrimary: true },
       { name: "React 19 & Next.js", level: "Production Core", capability: "Modern component architecture, server components & edge rendering", isPrimary: true },
@@ -42,8 +42,8 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     id: "integrations",
-    title: "Enterprise APIs & CRM Infrastructure",
-    description: "Interconnecting enterprise SaaS platforms, messaging channels, and payment gateways with authenticated APIs.",
+    title: "APIs & Integrations",
+    description: "Connecting CRMs, chat apps, databases, and payment services together with reliable APIs.",
     skills: [
       { name: "WhatsApp Cloud / Business API", level: "Production Core", capability: "Interactive button menus, template messages & 2-way bot chat", isPrimary: true },
       { name: "GoHighLevel (GHL) CRM", level: "Production Core", capability: "Contact custom fields, pipeline stage triggers & calendar sync", isPrimary: true },

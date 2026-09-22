@@ -76,9 +76,9 @@ export const Resume: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionHeader
-          title="Curriculum Vitae & Career Profile"
-          subheadline="Verified curriculum vitae covering CS fundamentals, production n8n workflows, and engineering history."
-          badge="Credentials"
+          title="Resume"
+          subheadline="My background in automation, development, and computer science."
+          badge="Resume"
           icon={FileText}
         />
 
@@ -249,7 +249,7 @@ export const Resume: React.FC = () => {
                   Official Resume Document
                 </h4>
                 <p className="text-xs sm:text-sm text-zinc-400 mb-6 max-w-md leading-relaxed">
-                  Verified curriculum vitae covering CS fundamentals, production n8n workflows, deployed web architectures, and client automation outcomes.
+                  Overview of my education, technical skills, production n8n workflows, and development experience.
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-3">
                   <button

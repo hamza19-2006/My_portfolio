@@ -62,9 +62,9 @@ export const Contact: React.FC = () => {
     <section id="contact" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#050507] border-t border-white/5 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionHeader
-          title="Direct Consultation & Inquiries"
-          subheadline="Ready to eliminate manual operations, deploy an n8n pipeline, or build a production system? Let's talk."
-          badge="Direct Outreach"
+          title="Get in Touch"
+          subheadline="Have a workflow to automate or an app to build? Let's talk."
+          badge="Contact"
           icon={Mail}
         />
 
