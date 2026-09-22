@@ -5,24 +5,24 @@ export const impactMetrics: MetricItem[] = [
     id: "m-1",
     value: "8+",
     label: "Production Automations",
-    subtext: "Live n8n workflows handling CRM, social media, AI assistants, and analytics"
+    subtext: "Live n8n workflows routing CRM data, WhatsApp messages, and scheduled tasks"
   },
   {
     id: "m-2",
-    value: "4+",
-    label: "Live Web and Mobile Apps",
-    subtext: "Active client portals, AI tools, and a Google Play app"
+    value: "Live",
+    label: "Google Play App",
+    subtext: "Published Flutter mobile application (Brutl Fitness) with Firebase cloud backend"
   },
   {
     id: "m-3",
-    value: "8",
-    label: "Certificates and Awards",
-    subtext: "Including Anthropic MCP, CS50, and 2nd Place in AI Competition"
+    value: "6+",
+    label: "Core API Integrations",
+    subtext: "WhatsApp Cloud API, GoHighLevel CRM, Telegram, Meta Graph, and Stripe"
   },
   {
     id: "m-4",
-    value: "10+",
-    label: "APIs and Integrations",
-    subtext: "WhatsApp, GoHighLevel, Gemini, Telegram, Meta, YouTube, and more"
+    value: "Verified",
+    label: "Technical Credentials",
+    subtext: "Anthropic MCP Certified, Harvard CS50 completed, and CS Student at UCP Lahore"
   }
 ];

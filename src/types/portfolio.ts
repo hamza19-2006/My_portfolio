@@ -64,6 +64,7 @@ export interface SkillCategory {
   skills: {
     name: string;
     level: string;
+    capability?: string;
     icon?: string;
     isPrimary?: boolean;
   }[];

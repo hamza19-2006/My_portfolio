@@ -1,19 +1,55 @@
 import React from "react";
 import { motion } from "motion/react";
 import { SectionHeader } from "./SectionHeader";
-import { User, Cpu, Shield, Zap, Sparkles, MapPin } from "lucide-react";
+import { User, Sparkles, MapPin, ArrowRight, CheckCircle2, Terminal, Cpu, Database, Network } from "lucide-react";
 
 export const About: React.FC = () => {
+  const pipelineSteps = [
+    {
+      step: "01",
+      title: "Event Ingestion & Trigger",
+      desc: "Inbound webhooks, Meta Graph events, Stripe triggers, and cron schedulers with cryptographic signature verification.",
+      tech: "n8n Webhook • Meta Cloud API • Cron",
+      icon: Terminal,
+      color: "text-blue-400",
+      border: "border-blue-500/20"
+    },
+    {
+      step: "02",
+      title: "Payload Validation & Schema",
+      desc: "Idempotency validation, data scrubbing, schema parsing, and deduplication to ensure zero orphaned records.",
+      tech: "TypeScript • Custom JS Nodes • JSON Schema",
+      icon: Network,
+      color: "text-sky-400",
+      border: "border-sky-500/20"
+    },
+    {
+      step: "03",
+      title: "LLM Decision & Extraction",
+      desc: "Structured function calling with Claude & Gemini for sentiment triage, multimodal OCR, and intent classification.",
+      tech: "Claude 3.5 • Gemini 2.5 Flash • Tool Calling",
+      icon: Cpu,
+      color: "text-indigo-400",
+      border: "border-indigo-500/20"
+    },
+    {
+      step: "04",
+      title: "Resilient Multi-Target Dispatch",
+      desc: "Two-way CRM sync, instant WhatsApp dispatch, PostgreSQL mutation, and automated dead-letter retry on external failure.",
+      tech: "GoHighLevel • PostgreSQL • WhatsApp API",
+      icon: Database,
+      color: "text-emerald-400",
+      border: "border-emerald-500/20"
+    }
+  ];
+
   return (
     <section id="about" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#09090d] border-t border-white/5 relative overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/2 right-[-10%] w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none" />
-
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionHeader
-          title="About Me"
-          subheadline="Building reliable automation systems and responsive apps that solve real business problems."
-          badge="Background"
+          title="Engineering Approach & Workflow Architecture"
+          subheadline="How I build reliable, production-tested automation workflows that solve real business bottlenecks."
+          badge="Behind the Systems"
           icon={User}
         />
 
@@ -23,104 +59,94 @@ export const About: React.FC = () => {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{
-              type: "spring",
-              stiffness: 90,
-              damping: 20,
-              mass: 0.8,
-            }}
-            className="lg:col-span-7 space-y-6 text-zinc-300 text-base sm:text-lg leading-relaxed font-normal"
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-6 space-y-6 text-zinc-300 text-base leading-relaxed font-normal"
           >
-            <div className="flex flex-col sm:flex-row gap-6 items-start">
-              <div className="shrink-0 p-[2px] rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 shadow-xl shadow-blue-500/10">
-                <img 
-                  src="/Images/Image.png" 
-                  alt="Muhammad Hamza" 
-                  className="w-24 h-24 lg:w-32 lg:h-32 rounded-2xl object-cover"
-                />
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight pt-2">
-                Connecting <span className="text-blue-400">smart automation</span> with <span className="text-indigo-400">everyday business workflows</span>.
+            <div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug mb-2">
+                Bridging computer science with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">practical business automation</span>.
               </h3>
+              <p className="text-xs text-zinc-400 font-mono flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block" />
+                BS Computer Science @ University of Central Punjab (UCP), Lahore
+              </p>
             </div>
 
             <p>
-              I am an <strong className="text-white font-semibold">n8n Automation Specialist and Full-Stack Developer</strong> based in Lahore, Pakistan. I build reliable automated workflows, connect business software through APIs, and rapidly ship clean web and mobile applications.
+              I am an <strong className="text-white font-medium">n8n automation specialist and full-stack developer</strong> based in Lahore, Pakistan. I help businesses automate lead capture, client communication, and cross-platform data syncing using self-hosted and cloud n8n instances.
             </p>
 
             <p>
-              My primary focus is <strong className="text-white font-semibold">building workflows in n8n</strong> that eliminate repetitive manual work. Whether it is syncing customer leads across CRMs, sending real-time notifications to WhatsApp, or integrating AI assistants to answer questions, I make sure the whole pipeline runs smoothly.
+              Coming from a Computer Science background, I treat workflows like real software: writing custom JavaScript nodes for data normalization, implementing token-authenticated webhooks, and connecting frontier LLMs (Claude and Gemini) for tasks like customer inquiry routing and document parsing.
             </p>
 
-            <p>
-              Currently pursuing a <strong className="text-white font-semibold">BS in Computer Science</strong> at the University of Central Punjab while building production automation systems for real clients.
-            </p>
+            <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 space-y-2 text-xs text-zinc-300">
+              <div className="font-semibold text-white flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-blue-400" />
+                <span>Built for Reliability</span>
+              </div>
+              <p className="text-zinc-400 leading-relaxed">
+                Workflows include automated retry logic, dead-letter error logging, and instant WhatsApp or Slack alerts to ensure errors never happen silently.
+              </p>
+            </div>
 
-            <div className="pt-4 flex flex-wrap gap-4 text-xs font-semibold text-zinc-400">
-              <span className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 transition-colors">
-                <MapPin className="w-3.5 h-3.5 text-blue-400" /> Lahore, Pakistan and Remote Worldwide
+            <div className="pt-2 flex flex-wrap gap-3 text-xs font-medium text-zinc-400">
+              <span className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-zinc-300">
+                <MapPin className="w-3.5 h-3.5 text-blue-400" /> Lahore, Pakistan & Remote
               </span>
-              <span className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 transition-colors">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" /> n8n Automation & Full-Stack Development
+              <span className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-zinc-300">
+                <Sparkles className="w-3.5 h-3.5 text-amber-400" /> n8n, Flutter & Modern Web
               </span>
             </div>
           </motion.div>
 
-          {/* Right Column: 3 Pillars Card with Staggered Spring Physics */}
-          <div className="lg:col-span-5 space-y-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 90, damping: 18, delay: 0.1 }}
-              className="glass-card shimmer-card rounded-2xl p-6 border border-white/10 hover:border-blue-500/40 transition-all cursor-default"
-            >
-              <div className="flex items-center gap-3 mb-2">
-                <div className="p-2 rounded-lg bg-blue-500/10 text-blue-400">
-                  <Zap className="w-5 h-5" />
-                </div>
-                <h4 className="text-base font-bold text-white">Automated Workflows</h4>
-              </div>
-              <p className="text-xs text-zinc-400 leading-relaxed">
-                Replacing manual tasks with instant lead capture, spreadsheet syncing, and WhatsApp notifications.
-              </p>
-            </motion.div>
+          {/* Right Column: Production Architecture Flow */}
+          <div className="lg:col-span-6 space-y-3.5">
+            <div className="flex items-center justify-between mb-2 px-1">
+              <span className="text-xs uppercase font-mono tracking-wider text-zinc-400 font-semibold">
+                Workflow Execution Model
+              </span>
+              <span className="text-[11px] font-mono text-blue-400 bg-blue-500/10 px-2.5 py-0.5 rounded border border-blue-500/20">
+                Production-Tested
+              </span>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 90, damping: 18, delay: 0.2 }}
-              className="glass-card shimmer-card rounded-2xl p-6 border border-white/10 hover:border-indigo-500/40 transition-all cursor-default"
-            >
-              <div className="flex items-center gap-3 mb-2">
-                <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-400">
-                  <Cpu className="w-5 h-5" />
-                </div>
-                <h4 className="text-base font-bold text-white">Practical AI Assistants</h4>
-              </div>
-              <p className="text-xs text-zinc-400 leading-relaxed">
-                Using vision and language models to understand customer questions, summarize notes, and handle support requests.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 90, damping: 18, delay: 0.3 }}
-              className="glass-card shimmer-card rounded-2xl p-6 border border-white/10 hover:border-purple-500/40 transition-all cursor-default"
-            >
-              <div className="flex items-center gap-3 mb-2">
-                <div className="p-2 rounded-lg bg-purple-500/10 text-purple-400">
-                  <Shield className="w-5 h-5" />
-                </div>
-                <h4 className="text-base font-bold text-white">Clean and Reliable Code</h4>
-              </div>
-              <p className="text-xs text-zinc-400 leading-relaxed">
-                Setting up error logs, secure webhooks, and automatic retry steps so systems do not fail unexpectedly.
-              </p>
-            </motion.div>
+            {pipelineSteps.map((step, idx) => {
+              const Icon = step.icon;
+              return (
+                <motion.div
+                  key={step.step}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: idx * 0.1 }}
+                  className={`glass-card rounded-2xl p-4 sm:p-5 border ${step.border} hover:border-white/20 transition-all`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 shrink-0">
+                      <Icon className={`w-5 h-5 ${step.color}`} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-2 mb-1">
+                        <h4 className="text-sm sm:text-base font-bold text-white tracking-tight truncate">
+                          {step.title}
+                        </h4>
+                        <span className="text-[11px] font-mono font-bold text-zinc-400 bg-white/5 px-2 py-0.5 rounded">
+                          {step.step}
+                        </span>
+                      </div>
+                      <p className="text-xs text-zinc-400 leading-relaxed mb-2.5">
+                        {step.desc}
+                      </p>
+                      <div className="text-[10px] font-mono text-zinc-300 flex items-center gap-1.5 bg-black/40 px-2.5 py-1 rounded-md border border-white/5 w-fit">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+                        <span>{step.tech}</span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>

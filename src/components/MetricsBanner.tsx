@@ -1,48 +1,53 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { impactMetrics } from "../data/metrics";
-import { Zap, Clock, ShieldCheck, Layers } from "lucide-react";
+import { Workflow, Smartphone, Layers, CheckCircle2 } from "lucide-react";
 
-const metricIcons = [Clock, Layers, ShieldCheck, Zap];
+const metricIcons = [Workflow, Smartphone, Layers, CheckCircle2];
 
-function useCountUp(end: number, duration: number, start: boolean): number {
-  const [count, setCount] = useState(0);
+function parseMetricValue(value: string): { prefix: string; number: number; suffix: string; decimals: number; isNumeric: boolean } {
+  const match = value.match(/^([^\d]*)([\d,.]+)(.*)$/);
+  if (match) {
+    const rawNum = match[2].replace(/,/g, "");
+    const hasDec = rawNum.includes(".");
+    const decimals = hasDec ? rawNum.split(".")[1].length : 0;
+    return { prefix: match[1], number: parseFloat(rawNum), suffix: match[3], decimals, isNumeric: true };
+  }
+  return { prefix: "", number: 0, suffix: value, decimals: 0, isNumeric: false };
+}
+
+function AnimatedMetric({ value, isInView }: { value: string; isInView: boolean }) {
+  const { prefix, number, suffix, decimals, isNumeric } = parseMetricValue(value);
+  const [displayNum, setDisplayNum] = useState(0);
   const rafRef = useRef<number>(0);
 
   useEffect(() => {
-    if (!start) return;
+    if (!isInView || !isNumeric) return;
     let startTime: number | null = null;
+    const duration = 1400;
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
-      // Ease out cubic for natural feel
       const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.floor(eased * end));
+      setDisplayNum(eased * number);
       if (progress < 1) {
         rafRef.current = requestAnimationFrame(animate);
       } else {
-        setCount(end);
+        setDisplayNum(number);
       }
     };
     rafRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(rafRef.current);
-  }, [end, duration, start]);
+  }, [number, isInView, isNumeric]);
 
-  return count;
-}
-
-function parseMetricValue(value: string): { number: number; suffix: string } {
-  const match = value.match(/^([\d.]+)(.*)$/);
-  if (match) {
-    return { number: parseFloat(match[1]), suffix: match[2] };
+  if (!isNumeric) {
+    return <>{value}</>;
   }
-  return { number: 0, suffix: value };
-}
 
-function AnimatedMetric({ value, isInView }: { value: string; isInView: boolean }) {
-  const { number, suffix } = parseMetricValue(value);
-  const count = useCountUp(number, 1800, isInView);
-  return <>{count}{suffix}</>;
+  const formatted = decimals > 0 
+    ? displayNum.toFixed(decimals) 
+    : Math.floor(displayNum).toLocaleString();
+  return <>{prefix}{formatted}{suffix}</>;
 }
 
 export const MetricsBanner: React.FC = () => {

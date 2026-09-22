@@ -16,9 +16,6 @@ export const AppShowcase: React.FC = () => {
 
   return (
     <section id="app-showcase" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#09090e] border-t border-white/5 relative overflow-hidden">
-      {/* Glow effect behind app section */}
-      <div className="absolute top-1/3 left-[-5%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
-
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionHeader
           title="Mobile Apps on Google Play"

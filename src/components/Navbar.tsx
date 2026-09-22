@@ -93,20 +93,20 @@ export const Navbar: React.FC = () => {
             className="flex items-center gap-3 group"
             onClick={(e) => scrollToSection(e, "#")}
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 p-[1px] shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-all">
-              <div className="w-full h-full bg-zinc-950 rounded-[11px] flex items-center justify-center font-black text-white text-base tracking-wider group-hover:bg-transparent transition-colors">
+            <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/20 p-[1px] shadow-sm transition-all group-hover:border-white/40">
+              <div className="w-full h-full bg-zinc-950 rounded-[10px] flex items-center justify-center font-bold text-white text-sm tracking-wider">
                 MH
               </div>
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
-                <span className="font-bold text-white tracking-tight text-base group-hover:text-blue-400 transition-colors">
+                <span className="font-bold text-white tracking-tight text-sm sm:text-base group-hover:text-blue-400 transition-colors">
                   Muhammad Hamza
                 </span>
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               </div>
               <span className="text-[11px] text-zinc-400 font-medium">
-                n8n Specialist and Developer
+                Automation Architect & Full-Stack Engineer
               </span>
             </div>
           </a>
@@ -165,10 +165,10 @@ export const Navbar: React.FC = () => {
             <a
               href="#contact"
               onClick={(e) => scrollToSection(e, "#contact")}
-              className="ml-2 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-bold tracking-wide shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30 transition-all"
+              className="ml-2 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white hover:bg-zinc-100 text-zinc-950 text-xs font-bold tracking-wide transition-all shadow-sm"
             >
               <span>Get in Touch</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-zinc-950" />
             </a>
           </div>
 
@@ -235,7 +235,7 @@ export const Navbar: React.FC = () => {
                 <a
                   href="#contact"
                   onClick={(e) => scrollToSection(e, "#contact")}
-                  className="px-5 py-3 rounded-xl bg-blue-600 text-white font-bold text-sm tracking-wide"
+                  className="px-5 py-3 rounded-xl bg-white hover:bg-zinc-100 text-zinc-950 font-bold text-sm tracking-wide transition-all"
                 >
                   Get in Touch
                 </a>

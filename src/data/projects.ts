@@ -4,7 +4,7 @@ export const webProjects: WebProject[] = [
   {
     id: "web-2",
     title: "Dr. Rahat Clinic Appointment Portal",
-    image: "https://i.ibb.co/VpLR3TNQ/Dr-Rahat.png",
+    image: "/Images/dr-rahat.png",
     link: "https://dental.hamza-systems.tech/",
     category: "Healthcare",
     valueStatement: "Patient booking portal and clinic website for dental healthcare.",
@@ -15,7 +15,7 @@ export const webProjects: WebProject[] = [
   {
     id: "web-3",
     title: "AI Study Assistant",
-    image: "https://i.ibb.co/MDsJzvCt/Screenshot-2026-04-17-185314.png",
+    image: "/Images/ai-study.png",
     link: "https://aistudy.hamza-systems.tech/",
     category: "EdTech",
     valueStatement: "Study platform that turns lecture notes and PDFs into interactive quizzes.",
@@ -26,7 +26,7 @@ export const webProjects: WebProject[] = [
   {
     id: "web-4",
     title: "University Merit Calculator",
-    image: "https://i.ibb.co/wN2tdNxT/merit.png",
+    image: "/Images/merit-calculator.png",
     link: "https://merit-calculator-by-hamza.streamlit.app/",
     category: "Utilities",
     valueStatement: "Quick online calculator to estimate university admission scores.",

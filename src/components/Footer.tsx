@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Left: Brand Monogram & Name */}
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600 p-[1px]">
+          <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/20 p-[1px]">
             <div className="w-full h-full bg-zinc-950 rounded-[7px] flex items-center justify-center font-bold text-white text-xs">
               MH
             </div>
@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
               Muhammad Hamza
             </p>
             <p className="text-[11px] text-zinc-500 font-medium">
-              n8n Automation Specialist and Developer
+              AI Automation Architect & Full-Stack Systems Engineer
             </p>
           </div>
         </div>

@@ -4,8 +4,8 @@ export const playStoreApps: PlayStoreApp[] = [
   {
     id: "app-1",
     title: "Brutl Fitness",
-    tagline: "Redefining fitness tracking through real-time consistency scoring, intelligent macro analytics, and gamified community competition.",
-    description: "Brutl Fitness is a high-performance Flutter mobile application engineered to turn daily workout and nutrition tracking into a dynamic, habit-building experience. Powered by custom algorithms and real-time cloud infrastructure, it empowers users to track health metrics while competing on global leaderboards.",
+    tagline: "A mobile workout and nutrition tracking app published on Google Play, built with Flutter and Firebase.",
+    description: "Engineered from scratch in Flutter & Dart with a Firebase backend. Brutl Fitness tracks daily steps, customized workout splits, and nutritional macros with offline support and live leaderboard sync.",
     packageName: "com.brutlapp.fitness",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.brutlapp.fitness",
     icon: "/apps/logo.png",
@@ -19,14 +19,14 @@ export const playStoreApps: PlayStoreApp[] = [
     ],
     category: "Health & Fitness",
     version: "1.0.0",
-    rating: 4.9,
-    ratingCount: "150+ Reviews",
-    downloads: "1,000+",
+    rating: 5.0,
+    ratingCount: "Google Play",
+    downloads: "Live App",
     highlights: [
-      "Proprietary Brutl Score (1–1000): Dynamically calculates a unified daily consistency metric based on step volume, completed workouts, and macro adherence.",
-      "Precision Macro Analytics: Intuitive ring visualizer providing real-time tracking of daily caloric intake alongside granular protein, carb, and fat distributions.",
-      "Gamified Arena & Leaderboards: Boosts user retention with milestone streak badges (First Pump, Hydro Hero, Step King) and real-time global rank competition.",
-      "Multi-Week Training Manager: Flexible split planner built for structuring custom workout routines with seamless offline-first persistence and cloud synchronization."
+      "Brutl Consistency Score (1–1000): A custom algorithm scoring daily steps, completed workout sets, and caloric goals.",
+      "Visual Macro & Calorie Tracker: Real-time progress rings for tracking daily calories, protein, carbs, and fats.",
+      "Leaderboards & Badges: Community streak challenges and unlockable achievements to keep users consistent.",
+      "Offline-First Split Planner: Lets users build and log workout routines offline with automatic cloud sync when connected."
     ],
     techStack: ["Flutter", "Dart", "Firebase", "State Management", "REST APIs"]
   }

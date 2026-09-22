@@ -27,97 +27,62 @@ export const Certificates: React.FC = () => {
     };
   }, [selectedCert]);
 
-  const categories = ["All", "Course", "Hackathons", "Participation", "Internships"];
+  const filterTabs = [
+    { id: "All", label: "All" },
+    { id: "Competitions", label: "Awards" },
+    { id: "Course", label: "Courses" },
+    { id: "Participation", label: "Programs" }
+  ];
 
-  const filteredCerts =
-    activeCategory === "All" || activeCategory === "Internships"
-      ? activeCategory === "Internships"
-        ? []
-        : certificates
-      : certificates.filter((c) => c.category.toLowerCase() === activeCategory.toLowerCase());
+  const filteredCerts = certificates.filter((c) => {
+    if (activeCategory === "All") return true;
+    if (activeCategory === "Competitions") return c.category.toLowerCase() === "hackathons" || c.isWinningAward;
+    if (activeCategory === "Course") return c.category.toLowerCase() === "course" || c.category.toLowerCase() === "courses";
+    if (activeCategory === "Participation") return c.category.toLowerCase() === "participation";
+    return true;
+  });
 
   return (
     <section id="certificates" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#07070a] border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <SectionHeader
-            title="Certificates and Achievements"
-            subheadline="Hackathon awards and participation certificates from events and programmes."
+            title="Certifications & Awards"
+            subheadline="Official certificates, hackathon awards, and course completions."
             badge="Certificates"
             icon={Award}
           />
 
           {/* Filter Pills */}
           <div className="flex flex-wrap gap-2 mb-6 md:mb-14">
-            {categories.map((category) => (
+            {filterTabs.map((tab) => (
               <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
+                key={tab.id}
+                onClick={() => setActiveCategory(tab.id)}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all cursor-pointer ${
-                  activeCategory === category
-                    ? "bg-amber-500 text-zinc-950 font-bold shadow-lg shadow-amber-500/20"
+                  activeCategory === tab.id
+                    ? "bg-white text-zinc-950 font-bold shadow-lg"
                     : "bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/5"
                 }`}
               >
-                {category}
+                {tab.label}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Certificate Cards Grid or Empty State */}
-        {activeCategory === "Internships" ? (
-          <motion.div
-            key="internships-empty"
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 24 }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col items-center justify-center py-24 text-center"
-          >
-            {/* Animated icon ring */}
-            <div className="relative mb-8">
-              <div className="absolute inset-0 rounded-full bg-blue-500/10 blur-2xl scale-150" />
-              <div className="relative w-20 h-20 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center shadow-xl">
-                <Clock className="w-9 h-9 text-blue-400 opacity-80" />
-              </div>
-              {/* Orbiting dot */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0"
-              >
-                <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-blue-500 shadow-lg shadow-blue-500/50" />
-              </motion.div>
-            </div>
-
-            <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">
-              Internship section is on its way
-            </h3>
-            <p className="text-zinc-400 text-sm max-w-sm leading-relaxed">
-              I have not completed a formal internship yet, but I am actively working on real-world projects and will add this section once I do.
-            </p>
-
-            {/* Subtle divider line */}
-            <div className="mt-8 flex items-center gap-4 w-full max-w-xs">
-              <div className="flex-1 h-px bg-gradient-to-r from-transparent to-white/10" />
-              <span className="text-[11px] font-mono text-zinc-600 tracking-widest">COMING SOON</span>
-              <div className="flex-1 h-px bg-gradient-to-l from-transparent to-white/10" />
-            </div>
-          </motion.div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <AnimatePresence mode="popLayout">
-              {filteredCerts.map((cert) => (
-                <CertificateCard
-                  key={cert.id}
-                  cert={cert}
-                  onPreview={(c) => setSelectedCert(c)}
-                />
-              ))}
-            </AnimatePresence>
-          </div>
-        )}
+        {/* Certificate Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <AnimatePresence mode="popLayout">
+            {filteredCerts.map((cert) => (
+              <CertificateCard
+                key={cert.id}
+                cert={cert}
+                onPreview={(c) => setSelectedCert(c)}
+              />
+            ))}
+          </AnimatePresence>
+        </div>
       </div>
 
       {/* Lightbox Modal for Certificate Preview with createPortal */}

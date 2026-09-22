@@ -69,47 +69,48 @@
   }
 }
 
-/* 2. Glassmorphic Surfaces with Optimized Mobile Performance */
+/* 2. Architectural Surfaces with Optimized Performance */
 .glass-panel {
-  background: rgba(13, 13, 18, 0.85);
+  background: rgba(14, 14, 18, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transform: translateZ(0);
 }
 
 .glass-card {
-  background: rgba(18, 18, 24, 0.8);
+  background: rgba(18, 18, 23, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.07);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   transform: translateZ(0);
 }
 
 /* Fast GPU rendering on mobile devices */
 @media (max-width: 768px) {
   .glass-panel {
-    background: rgba(13, 13, 18, 0.95);
+    background: rgba(14, 14, 18, 0.97);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
   }
 
   .glass-card {
-    background: rgba(18, 18, 24, 0.92);
+    background: rgba(18, 18, 23, 0.95);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
   }
 }
 
 .glass-card:hover {
-  border-color: rgba(99, 102, 241, 0.35);
-  box-shadow: 0 15px 40px -10px rgba(99, 102, 241, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(23, 23, 30, 0.92);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-/* 3. Card Shimmer Highlight (Silky Specular Sweep on Hover - Desktop only) */
+/* 3. Subtle Specular Highlight for Primary Interactive Elements */
 .shimmer-card {
   position: relative;
   overflow: hidden;
@@ -126,13 +127,13 @@
     background: linear-gradient(
       60deg,
       transparent 0%,
-      rgba(255, 255, 255, 0.02) 42%,
-      rgba(255, 255, 255, 0.08) 50%,
-      rgba(255, 255, 255, 0.02) 58%,
+      rgba(255, 255, 255, 0.01) 44%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0.01) 56%,
       transparent 100%
     );
     transform: translateX(-100%) rotate(25deg);
-    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     pointer-events: none;
   }
 
@@ -141,16 +142,16 @@
   }
 }
 
-/* 4. Luxury Typography Gradients */
+/* 4. Luxury Monochromatic & Crisp Accent Typography */
 .text-gradient {
-  background-image: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+  background-image: linear-gradient(135deg, #ffffff 0%, #e2e8f0 45%, #94a3b8 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .text-gradient-accent {
-  background-image: linear-gradient(135deg, #60a5fa 0%, #818cf8 50%, #c084fc 100%);
+  background-image: linear-gradient(135deg, #60a5fa 0%, #93c5fd 60%, #c4b5fd 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -162,4 +163,30 @@
   transform-origin: left;
   height: 2px;
   will-change: transform;
+}
+
+/* 6. Document Viewer Visible Scrollbar */
+.resume-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 130, 246, 0.45) #0c0c12;
+}
+
+.resume-scroll::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+.resume-scroll::-webkit-scrollbar-track {
+  background: #0c0c12;
+  border-radius: 6px;
+}
+
+.resume-scroll::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.4);
+  border-radius: 6px;
+  border: 2px solid #0c0c12;
+}
+
+.resume-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.7);
 }
