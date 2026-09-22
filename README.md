@@ -4,8 +4,6 @@
 
 🔗 **Live Site:** [hamza-systems.tech](https://hamza-systems.tech/)
 
-![Portfolio Preview](/Images/Image.png)
-
 ---
 
 ## About
@@ -78,7 +76,7 @@ public/
 
 ## Contact
 
-- **Email:** hn955779@gmail.com
+- **Email:** m.hamza.system@gmail.com
 - **GitHub:** [github.com/hamza19-2006](https://github.com/hamza19-2006)
 - **WhatsApp:** [+92 303 2172766](https://wa.me/923032172766)
 
